@@ -1,0 +1,20 @@
+RewriteEngine on
+
+
+RewriteRule (.*)index.html$  index.asp?f=index
+RewriteRule (.*)webowner.html$  index.asp?f=webowner
+RewriteRule (.*)advertiser.html$  index.asp?f=advertiser
+RewriteRule (.*)agent.html$  index.asp?f=agent
+
+RewriteRule (.*)infoall.html$  index.asp?f=infoall
+RewriteRule (.*)infoall_a([0-9]+)p([0-9]+).html$  index.asp?f=infoall&assort=$2&page=$3
+RewriteRule (.*)infoshow_([0-9]+).html$  index.asp?f=infoshow&id=$2
+
+RewriteRule (.*)help.html$  index.asp?f=help
+RewriteRule (.*)style.html$  index.asp?f=style
+RewriteRule (.*)rule.html$  index.asp?f=rule
+RewriteRule (.*)service.html$  index.asp?f=service
+RewriteRule (.*)contact.html$  index.asp?f=contact
+RewriteRule (.*)reg.html$  index.asp?f=reg
+RewriteRule (.*)login.html$  index.asp?f=login
+RewriteRule (.*)pwdrecover.html$  index.asp?f=pwdrecover

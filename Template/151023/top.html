@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{infotitle}</title>
+<meta name="keywords" content="{infokeyword}">
+<meta name="description" content="{infodesc}">
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<link rel="icon" href="images/favicon.ico" type="image/ico">
+<link href="css/sys.css" rel="stylesheet" type="text/css">
+<link href="template/151023/images/style.css" rel="stylesheet" type="text/css">
+<link href="template/151023/images/slider.css" rel="stylesheet" type="text/css">
+<!--需调用模板里的这个低版本的jquery.js-->
+<script type="text/javascript" src="template/151023/images/jquery.js"></script>
+<script language=javascript src="js/global.js"></script>
+
+<link rel="stylesheet" href="css/BeAlert.css">
+<script src="js/BeAlert.js"></script>
+
+<script type="text/javascript" src="template/151023/images/jquery.caroufredsel-6.0.4-packed.js"></script>
+<script type="text/javascript" src="template/151023/images/focus.js"></script>
+<script type="text/javascript" src="template/151023/images/jquery-runbanner.js"></script>
+<script type="text/javascript" src="template/151023/images/function.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+//广告类型展开收起效果
+$(".cpc").mouseover(
+function () {
+$(this).siblings().stop().animate({ width:'19%' },1);
+$(this).siblings().children().children(".adstyleinfo").hide();
+$(this).siblings().children().children(".box-title").children(".y-h2").children(".more").hide();
+$(this).stop().animate({ width:'37%'},200);
+$(this).children().children(".adstyleinfo").slideDown('800');
+$(this).children().children(".box-title").children(".y-h2").children(".more").show();
+});
+})
+</script> 
+<style type="text/css">
+.t_1000 {line-height: 30px;}
+.register{padding:10px;}
+</style>
+</head>
+<body>
+
+<div class="top">
+	<div class="t_1000">
+		<div class="logo"><img src="template/151023/images/logo.jpg"></div>
+		<div class="top_rt">
+			<div class="topblank"></div>
+			<div class="nav">
+				<ul>
+				<li><a id="index" href="{url_index}" class="home">首页</a></li>
+				<li><a id="infoall" href="{url_infoall}" class="news">联盟公告</a></li>
+				<li><a id="style" href="{url_style}" class="style">广告类型</a></li>
+				<li><a id="help" href="{url_help}" class="question">常见问题</a></li>
+				<li><a id="contact" href="{url_contact}" class="about">关于我们</a></li>
+				</ul>
+			</div>
+<script>
+//判断当前菜单加上样式
+$(function(){
+var myurl=window.location.href;
+if(myurl.indexOf("infoall")>=0){
+ $("#infoall").addClass("on");
+}else if(myurl.indexOf("style")>=0){
+ $("#style").addClass("on");
+}else if(myurl.indexOf("help")>=0){
+ $("#help").addClass("on");
+}else if(myurl.indexOf("contact")>=0){
+ $("#contact").addClass("on");
+}else{
+ $("#index").addClass("on");
+}
+});
+</script>
+
+			<div class="toplogin">
+								<ul>
+								<li><a href="{url_login}" class="dl pngFix">登录</a></li>
+				<li class="shu"> | </li>
+				<li><a href="{url_reg}" class="zc pngFix">注册</a></li>
+				</ul> 
+							</div>
+		</div>
+	</div>
+</div>
+<script>
+
+</script>

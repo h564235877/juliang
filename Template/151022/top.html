@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+
+<title>{infotitle}</title>
+<meta name="keywords" content="{infokeyword}">
+<meta name="description" content="{infodesc}">
+<link rel="icon" href="images/favicon.ico" type="image/ico">
+<link href="template/151022/images/common.css" rel="stylesheet" type="text/css">
+<link href="template/151022/images/main.css" rel="stylesheet" type="text/css">
+<link href="template/151022/images/home.css" rel="stylesheet" type="text/css">
+<link href="template/151022/images/register.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script language=javascript src="js/global.js"></script>
+
+<link rel="stylesheet" href="css/BeAlert.css">
+<script src="js/BeAlert.js"></script>
+<script type="text/javascript" src="template/151022/images/common.js"></script>
+<script type="text/javascript" src="template/151022/images/jquery.slider.js"></script>
+<script type="text/javascript" src="template/151022/images/slide.js"></script>
+
+<link href="css/sys.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+ .f-bar{width:262px;margin:0px auto 0; overflow:hidden;padding-left:20px;}
+ .f-bar  .t{line-height:22px;margin:17px 0 10px;}
+ .f-bar  .t-l{float:left;font-size:16px;font-weight:bold;color:#2b2b29;}
+ .f-bar  .t-r{float:right;font-size:14px;font-weight:bold;}
+ .f-bar  .t-r a{color:#0EBDDF;} 
+ .f-bar .row{}
+ .f-bar .inp-wrap{height:32px;background:url('template/151022/images/loging-inputs.png') no-repeat 0 0;}
+ .f-bar .inp{border:0;outline:none; margin-left:38px;margin-top:1px; height:16px;line-height:16px;background:#fff;padding:6px 0;}
+ .f-bar .inp-wrap-1{background-position:0 0; width:261px;}
+ .f-bar .inp-wrap-1 .inp{width:220px;}
+ .f-bar  .blank{height:10px;}
+ .f-bar  .blank2{height:20px;}
+ .f-bar .getpwd{text-align:right;}
+ .f-bar .getpwd a{color:#767676;}
+ .f-bar .inp-wrap-2{background-position:0 -50px; width:261px;}
+ .f-bar .inp-wrap-2 .inp{width:220px;}
+ .f-bar .inp-wrap-3{background-position:0 -98px; width:181px;}
+ .f-bar .inp-wrap-3 .inp{width:140px;height:15px;line-height:15px;}
+ .f-bar .code img{cursor:pointer;}
+ .f-bar .btn{width:262px; height:32px;line-height:32px;cursor:pointer;border:0 none;background:url('template/151022/images/loging-inputs.png') no-repeat 0 -143px;}
+ 
+ </style>
+ 
+ </head>
+ 
+<body>
+	<div id="header">
+		<div class="container">
+			<div class="top">
+				<div class="left">
+                <script type="text/javascript">
+                var text=""; 
+                day = new Date( );
+                time = day.getHours( );
+                if (( time>=0) && (time < 7 ))
+                text="夜猫子，要注意身体哦！这么晚可没妹子陪你聊吆！";
+                if (( time >= 7 ) && (time < 12))
+                text="起的够早呀，昨晚没熬夜吗？";
+                if (( time >= 12) && (time < 14))
+                text="午休时间哦，亲，一定是不习惯午睡的吧？！";
+                if (( time >=14) && (time < 18))
+                text="下午茶的时间到了，休息一下吧！ ";
+                if ((time >= 18) && (time <= 22))
+                text="亲，您又来了，赶紧看看您的收益吧！";
+                if ((time >= 22) && (time < 24))
+                text="很晚了哦，注意休息呀！";
+                document.write(text)
+                </script>
+				</div>
+				<div class="right"><span id="login_msg"><a href="{url_reg}">注册</a>/<a href="{url_login}">登录</a></span></div>
+			</div>
+			<div class="bottom">
+				<div class="logo"><a href="{url_index}"></a></div>
+				<div class="nav">
+					<ul>
+						<li><a href="{url_index}" class="nav0 nav0current">首页</a></li>
+						<li><a href="{url_webowner}" class="nav1">网站主</a></li>
+						<li><a href="{url_advertiser}" class="nav2">广告主</a></li>
+						<li><a href="{url_infoall}" class="nav3">联盟公告</a></li>
+						<li><a href="{url_contact}" class="nav4">联系我们</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+ 

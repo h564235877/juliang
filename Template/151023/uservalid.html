@@ -1,0 +1,21 @@
+{top}
+
+
+<form name="form1" method="post" action="cf.aspx?action=uservalidsend&username={uservalid_username}&email_old={uservalid_email}&maketime={uservalid_maketime}&checkcode={uservalid_checkcode}">
+<div id="uservalid">
+<ul>
+<li id="uservalid_a1">你的账号还没有通过邮件验证</li>
+<li id="uservalid_a2">请输入你的用户名，系统会自动发送一封邮件到你填写的的E-Mail地址内，收到邮件打开里面的审核链接即可成功审核,如果还没有收到邮件请换个邮件地址试试，或请和超级管理员联系！</li>
+<li id="uservalid_a3">你的用户名：</li>
+<li id="uservalid_a4">{uservalid_username}</li>
+<li id="uservalid_a3">邮件地址：</li>
+<li id="uservalid_a4"><input name="email" type="text" id="email" size="23" value="{uservalid_email}">
+如收到不邮件可更换新邮件地址试试
+</li>
+<li id="uservalid_a5"><input type="submit" name="Submit" value="发送验证邮件"></li>
+</ul>
+</div>
+</form>
+
+
+{bottom}

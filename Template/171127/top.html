@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>{infotitle}</title>
+<meta name="keywords" content="{infokeyword}">
+<meta name="description" content="{infodesc}">
+<meta charset="gbk">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="copyright" content="Tencent">
+<meta name="renderer" content="webkit">
+<link rel="icon" href="images/favicon.ico" type="image/ico">
+<link rel="shortcut icon" href="" type="image/x-icon">
+<link rel="stylesheet" href="css/sys.css">
+<link rel="stylesheet" href="template/171127/images/main.css">
+<script src="js/jquery.min.js"></script>
+
+<script language=javascript src="js/global.js"></script>
+
+<link rel="stylesheet" href="css/BeAlert.css">
+<script src="js/BeAlert.js"></script>
+</head>
+<body>
+
+
+<div class="navbar">
+    <div class="navbar-hd">
+        <div class="container">
+            <h1 class="navbar-brand">
+                <a href="{url_index}" class="navbar-brand-logo"><img src="template/171127/images/logo.png"> </a>
+            </h1>
+        </div>
+    </div>
+    <!-- /.navbar-hd -->
+    <div class="navbar-bd">
+        <div class="container">
+            <a href="/ads/" class="navbar-brand-minimal"></a>
+            <ul class="navbar-navigation">
+                <li{class_index}>
+                    <a href="{url_index}"   data-dmhottag="ads" data-dmhottag-type="tab">平台概览</a>
+                </li>
+                <li{class_style}>
+                    <a href="{url_style}"   data-dmhottag="resources" data-dmhottag-type="tab">广告形式</a>
+                </li>
+                <li{class_rule}>
+                    <a href="{url_rule}"   data-dmhottag="targeting" data-dmhottag-type="tab">流量变现</a>
+                </li>
+                <li{class_infoall}>
+                    <a href="{url_infoall}"   data-dmhottag="targeting" data-dmhottag-type="tab">系统公告</a>
+                </li>
+                <li{class_contact}>
+                    <a href="{url_contact}"   data-dmhottag="success" data-dmhottag-type="tab">联系我们</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-panel">
+                <li class="panel-contact _js_contact400" style="display:none">
+                    <a href="tel:400123456">400-123-456</a>
+                </li>
+                <li class="panel-action">
+                    <ul>
+                        <li class="login">
+                            <a class="btn btn-default btn-login" href="{url_login}" id="loginBtn"  data-dmhottag="login" data-dmhottag-type="header">
+                                登录
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="btn btn-primary btn-register" href="{url_reg}"  >广告主注册</a>
+                            <a class="btn btn-primary btn-register" href="{url_reg}"  >网站主注册</a>
+
+
+                            <div class="userpanel" id="userpanel" style="display: none;">
+
+                                <div class="user-exit">
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>

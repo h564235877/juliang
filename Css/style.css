@@ -1,0 +1,178 @@
+*{margin:0;padding:0;word-wrap:break-word;}
+div,ul,li,p,form,table,dt,dl,dd,tr,i,em,b,a,s{padding: 0px; margin: 0px;list-style-type: none;}
+
+body{width:100%; font-family:Arial,'hiragino sans gb','microsoft yahei ui','microsoft yahei',simsun,sans-serif;color:#1c2b36; font-size:12px;}
+table {border-collapse: collapse; border-spacing: 0;}
+
+textarea, select, input{font-family:Arial,'hiragino sans gb',microsoft yahei !important;}
+a{color:#1c2b36;text-decoration:none; cursor:pointer; outline:none}
+a:hover{text-decoration:none; color:#247ec0;}
+a:focus{outline:none;}
+img{border:none; } 
+em,i{font-style: normal;font-weight: normal;}
+h3,h4{padding:0px; font-size:14px; font-weight:bold;}
+
+#fenye{ margin-top:10px;margin-right:5px;clear:both;float:right;}
+#fenye select{height: 22px;padding: 0;margin-left: 5px;}
+#fenye a{text-decoration:none; display:inline;}
+#fenye .prev,#fenye .next{width:52px; text-align:center;}
+#fenye a.curr{width:22px;background:#247ec0; border:1px solid #dcdddd; color:#fff; font-weight:bold; text-align:center;}
+#fenye a.curr:visited {color:#fff;}
+#fenye a{color:#5d656c;background:#fff; margin:0px 5px; border:1px solid #dcdddd; float:left; text-align:center;height:22px;line-height:22px}
+#fenye a.num{width:22px;}
+#fenye a:visited{color:#247ec0;} 
+#fenye a:hover{color:#fff; background:#247ec0; border:1px solid #dcdddd;float:left;}
+#fenye span{line-height:30px;}
+#fenye .textbox{margin-top: 0;}
+
+/*公共模块上的样式*/
+#login{margin:0px 5px;width:200px;}
+#login li{float:left;}
+#login input{width:120px;}
+#login select{width:123px;}
+#login img{margin:5px 0px 5px 0px;}
+
+#login_a1{width:60px;clear:left;}
+#login_a2{width:60px;margin:5px 3px 0px 0px;clear:left;}
+#login_a3{width:100%;margin:5px;text-align:center;}
+
+#login_checkcode{width:70%;}
+#login_checkcode input{display:block;width:65px;float:left;}
+
+#login_button{margin:5px 5px 5px 0px;}
+#loginccimg{display:block;width:56px;height:14px;float:left;border:0;}
+
+#userincometop{margin:0px 5px;width:99%;}
+#userincometop li{width:50%;float:left;}
+#userincometop_a1{background:url(pxbj.gif)  no-repeat 0px 5px;}
+#userincometop_a2{background:url(pxbj_2.gif)  no-repeat 0px 5px;}
+#userincometop_a3{background:url(pxbj_3.gif)  no-repeat 0px 5px;}
+#userincometop_b1{margin:2px 10px 2px 3px;color:#FFFFFF; font-weight:500;}
+#userincometop_b2{margin:2px 10px 2px 3px;color:#FFFFFF; font-weight:100;}
+#userincometop_b3{margin:2px 5px 2px 0px;color:#FFFFFF; font-weight:100;}
+
+
+#userspendlast{margin:0px 5px;width:99%;}
+#userspendlast li{width:50%;float:left;}
+#userspendlast_a1{background:url(pxbj.gif)  no-repeat 0px 5px;}
+#userspendlast_a2{background:url(pxbj_2.gif)  no-repeat 0px 5px;}
+#userspendlast_a3{background:url(pxbj_3.gif)  no-repeat 0px 5px;}
+#userspendspan_b1{margin:2px 10px 2px 3px;color:#FFFFFF; font-weight:500;}
+#userspendspan_b2{margin:2px 10px 2px 3px;color:#FFFFFF; font-weight:100;}
+#userspendspan_b3{margin:2px 5px 2px 0px;color:#FFFFFF; font-weight:100;}
+
+
+#userlastreg{margin:0px 5px;width:99%;}
+#userlastreg li{width:50%;float:left;}
+#userlastreg_a1{background:url(pxbj.gif)  no-repeat 0px 5px;}
+#userlastreg_a2{background:url(pxbj_2.gif)  no-repeat 0px 5px;}
+#userlastreg_a3{background:url(pxbj_3.gif)  no-repeat 0px 5px;}
+#userlastreg_b1{margin:2px 10px 2px 3px;color:#FFFFFF; font-weight:500;}
+#userlastreg_b2{margin:2px 10px 2px 3px;color:#FFFFFF; font-weight:100;}
+#userlastreg_b3{margin:2px 5px 2px 0px;color:#FFFFFF; font-weight:100;}
+
+
+#aduserlastreg{margin:0px 5px;width:99%;}
+#aduserlastreg li{width:50%;float:left;}
+#aduserlastreg_a1{background:url(pxbj.gif)  no-repeat 0px 5px;}
+#aduserlastreg_a2{background:url(pxbj_2.gif)  no-repeat 0px 5px;}
+#aduserlastreg_a3{background:url(pxbj_3.gif)  no-repeat 0px 5px;}
+#aduserlastreg_b1{margin:2px 10px 2px 3px;color:#FFFFFF; font-weight:500;}
+#aduserlastreg_b2{margin:2px 10px 2px 3px;color:#FFFFFF; font-weight:100;}
+#aduserlastreg_b3{margin:2px 5px 2px 0px;color:#FFFFFF; font-weight:100;}
+
+
+#qqonline{margin:0px 5px;width:98%;}
+#qqonline li{float:left;margin-left:6px;}
+
+#infoclassall{clear:both;}
+#infoclassall_a{}
+#infoclassall_a1{display:block;float:left;margin:10px 40px 20px 0px;font-size:18px;font-weight:bold;}
+#infoclassall_a2{display:block;float:left;margin:10px 40px 20px 0px;font-size:18px;font-weight:bold;BACKGROUND-color:#cccccc;}
+
+#infoall{clear:both;}
+#infoall_a{}
+#infoall_a1{width:100%;height:50px;}
+
+
+#infolast{margin:0px 5px;width:99%;}
+#infolast li{width:100%;float:left;}
+
+#helplast{margin:0px 5px;width:99%;}
+#helplast li{width:100%;float:left;}
+
+
+#wzzhelpall{}
+#wzzhelpall li{margin-left:10px;line-height:25px;}
+
+#ggzhelpall{}
+#ggzhelpall li{margin-left:10px;line-height:25px;}
+
+
+
+#infoshow{}
+#infoshow_a1{font-weight:bold;font-size:14px;text-align:center;}
+#infoshow_a2{text-align:center;}
+#infoshow_a3{}
+#infoshow_a4{text-align:center;}
+
+
+#index_lxwm{margin:5px 10px;}
+#index_gglx{margin:5px 10px;}
+#index_wyhwzz{margin:5px 10px;}
+#index_ggz{margin:5px 10px;}
+#index_gybxt{margin:5px 10px;}
+#index_bottom{margin:5px 10px;}
+
+
+#reg{margin:10px auto;}
+#reg td {height:30px;}
+
+#pwdrecover{margin:10px auto;width:400px;}
+#pwdrecover_a1{margin:5px;font-weight:bold;font-size:14px;text-align:center;}
+#pwdrecover_a2{margin:5px;}
+#pwdrecover_a3{margin:5px;font-weight:bold;}
+#pwdrecover_a4{margin:5px;}
+#pwdrecover_a5{margin:10px 5px;}
+
+
+#pwdmodify{margin:0px auto;width:200px;text-align:center;}
+#pwdmodify_a{margin:5px;width:160px;}
+#pwdmodify_a1{margin:5px;font-weight:bold;font-size:14px;text-align:center;}
+#pwdmodify_a2{margin:5px;font-size:12px;text-align:left;}
+#pwdmodify_a3{margin:5px;text-align:left;}
+
+
+#pwdanswermodify{margin:0px auto;width:200px;text-align:center;}
+#pwdanswermodify_a{margin:5px;width:160px;}
+#pwdanswermodify_a1{margin:5px;font-weight:bold;font-size:14px;text-align:center;}
+#pwdanswermodify_a2{margin:5px;font-size:12px;text-align:left;}
+#pwdanswermodify_a3{margin:5px;text-align:left;}
+
+
+#uservalid{margin:10px auto;width:400px;}
+#uservalid_a1{margin:5px;font-weight:bold;font-size:14px;text-align:center;}
+#uservalid_a2{margin:5px;}
+#uservalid_a3{margin:5px;font-weight:bold;}
+#uservalid_a4{margin:5px;}
+#uservalid_a5{margin:15px 0px;}
+
+
+
+
+/*日历上的input上一月，下一月*/
+#PrevMonth{padding:0px;}
+#NextMonth{padding:0px;}
+
+
+.ok {
+color: #339900;
+font-size: 15px;
+font-weight: bold;
+}
+
+.no {
+color: #ff0000;
+font-size: 15px;
+font-weight: bold;
+}

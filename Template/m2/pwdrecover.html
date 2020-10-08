@@ -1,0 +1,52 @@
+{top}
+
+
+
+
+<div class="bg-translucent p-10">
+  <div class="login-box bg-white clearfix">
+    <div class="login-left">
+
+<script>
+$(function(){
+$("#pwdrecoverbtn").click(function(){
+ if($("#username").val()==""){
+  alert('请输入用户名', '', function () {$("#username").focus();});
+  return false;
+ }
+});
+});
+</script>
+<form name="form1" method="post" action="CF.aspx?Action=pwdsend">
+<div id="pwdrecover">
+<ul>
+<li id="pwdrecover_a1">找回密码</li>
+<li id="pwdrecover_a2">系统会自动发送修改密码邮件到你的Email里</li>
+<li id="pwdrecover_a3">你的用户名：</li>
+<li id="pwdrecover_a4"><input type="text" name="username" id="username"></li>
+<li id="pwdrecover_a5">
+<input type="submit" name="pwdrecoverbtn" id="pwdrecoverbtn" value="取回密码"><span style="margin-left:15px"><a href="javascript:history.go(-1);">返回</a></span>
+</li>
+</ul>
+</div>
+</form>
+{pwdrecoverother}
+    </div>
+    <div class="login-right">
+      <p><img src="template/m2/images/logo.png" class="m-b-md m-t-xs" alt="logo"></p>
+      <p class="text-white m-tb-15">专注于网络广告的研究与发展，为客户提供各种形式的网络广告投放服务</p>
+      <p class="text-white">Copyright&nbsp;&copy;&nbsp;All Rights Reserved.</p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+;
+</script>
+
+
+
+
+
+{bottom}

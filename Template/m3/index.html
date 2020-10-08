@@ -1,0 +1,56 @@
+{top}
+
+<script>
+$(function(){
+$("#userlogin").click(function(){
+ if($("#username").val()==""){
+  alert('请输入用户名', '', function () {$("#username").focus();});
+  return false;
+ }
+ if($("#pwd").val()==""){
+  alert('请输入网站主密码', '', function () {$("#pwd").focus();});
+  return false;
+ }
+});
+});
+</script>
+
+
+<div class="row lyear-wrapper" style="background-image: url(template/m3/images/login-bg-3.jpg); background-size: cover;">
+  <div class="lyear-login">
+    <div class="login-center">
+      <div class="login-header text-center">
+        <a href="{url_index}"> <img alt="light year admin" src="template/m3/images/logo-sidebar.png"> </a>
+      </div>
+      <form action="index.asp?Action=userloginsave" method="post" name="form_indexlogin" class="form-signin form-validate">
+        <div class="form-group has-feedback feedback-left">
+          <input type="text" placeholder="请输入您的用户名" class="form-control" name="username" id="username" />
+          <span class="mdi mdi-account form-control-feedback" aria-hidden="true"></span>
+        </div>
+        <div class="form-group has-feedback feedback-left">
+          <input type="password" placeholder="请输入密码" class="form-control" id="pwd" name="pwd" />
+          <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
+        </div>
+
+
+        <div class="form-group">
+          <button class="btn btn-block btn-primary" type="submit" id="userlogin">立即登录</button>
+        </div>
+        <div class="form-group">
+          <label class="lyear-checkbox checkbox-primary m-t-10" style="width:315px;padding-left:90px">
+<a href="{url_pwdrecover}">忘记密码</a>  |  <a href="{url_reg}">立即注册</a>
+          </label>
+        </div>
+		
+      </form>
+      <hr>
+      <footer class="col-sm-12 text-center">
+        <p class="m-b-0">Copyright&nbsp;&copy;&nbsp;All Rights Reserved.</p>
+      </footer>
+    </div>
+  </div>
+</div>
+
+
+
+{bottom}

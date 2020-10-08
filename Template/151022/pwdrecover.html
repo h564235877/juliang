@@ -1,0 +1,74 @@
+{top}
+
+<div style="margin:0px auto;width:960px;"><img src="template/151022/images/banner_reg.jpg" style="width:960px;height:auto"></div>
+
+	<div id="mainbody">
+		<div class="w960 register">
+
+			<div class="title">
+				<div class="step step1"></div>
+                <center><span id="msg"></span></center>
+			</div>
+
+			<div class="regbox">
+ 
+					<input name="action" type="hidden" value="reg">
+					<div class="regleft">
+
+
+
+          
+<script>
+$(function(){
+$("#pwdrecoverbtn").click(function(){
+ if($("#username").val()==""){
+  alert('请输入用户名', '', function () {$("#username").focus();});
+  return false;
+ }
+});
+});
+</script>
+<form name="form1" method="post" action="CF.aspx?Action=pwdsend">
+<div id="pwdrecover">
+<ul>
+<li id="pwdrecover_a1">找回密码</li>
+<li id="pwdrecover_a2">系统会自动发送修改密码邮件到你的Email里</li>
+<li id="pwdrecover_a3">你的用户名：</li>
+<li id="pwdrecover_a4"><input type="text" name="username" id="username"></li>
+<li id="pwdrecover_a5">
+<input type="submit" name="pwdrecoverbtn" id="pwdrecoverbtn" value="取回密码"><span style="margin-left:15px"><a href="javascript:history.go(-1);">返回</a></span>
+</li>
+</ul>
+</div>
+</form>
+{pwdrecoverother}
+
+
+					</div>
+					<div class="regright">
+						<div class="login">
+							<dl>
+								<dt>已经是{systitle}用户：</dt>
+								<dd><input type="button" value="登录" class="btn_login" onclick="window.location.href='{url_index}';"></dd>
+							</dl>
+							<dl>
+								<dd>
+									<p>国内领先的互联网营销平台！</p>
+									<p>产品稳定、数据可靠；</p>
+									<p>金牌服务，让您赚钱更安心！</p>
+								</dd>
+							</dl>
+						</div>			
+					</div>
+					<div style="clear:both"></div>
+		 
+			</div>
+		</div>
+	</div>
+
+
+
+	
+{bottom}
+
+

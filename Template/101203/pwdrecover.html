@@ -1,0 +1,28 @@
+{top}
+
+<script>
+$(function(){
+$("#pwdrecoverbtn").click(function(){
+ if($("#username").val()==""){
+  alert('请输入用户名', '', function () {$("#username").focus();});
+  return false;
+ }
+});
+});
+</script>
+<form name="form1" method="post" action="CF.aspx?Action=pwdsend">
+<div id="pwdrecover">
+<ul>
+<li id="pwdrecover_a1">找回密码</li>
+<li id="pwdrecover_a2">系统会自动发送修改密码邮件到你的Email里</li>
+<li id="pwdrecover_a3">你的用户名：</li>
+<li id="pwdrecover_a4"><input type="text" name="username" id="username"></li>
+<li id="pwdrecover_a5">
+<input type="submit" name="pwdrecoverbtn" id="pwdrecoverbtn" value="取回密码"><span style="margin-left:15px"><a href="javascript:history.go(-1);">返回</a></span>
+</li>
+</ul>
+</div>
+</form>
+{pwdrecoverother}
+
+{bottom}

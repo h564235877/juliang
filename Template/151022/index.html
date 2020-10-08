@@ -1,0 +1,305 @@
+{top}
+
+<div class="g-top">
+    <div class="con lay-1002-auto fix">
+         <div class="login-bar" id="g-top-logindialog">
+          <div class="alpha">　</div>
+          <div class="con">
+
+ <script type="text/javascript">
+     function show(a) {
+         if (a == "mobile") {
+             document.getElementById("pc").style.display = "none";
+             document.getElementById("mobile").style.display = "";
+         } else {
+             document.getElementById("mobile").style.display = "none";
+             document.getElementById("pc").style.display = "";
+         }
+         return false;
+     }
+     
+
+$(function(){
+$("#userlogin").click(function(){
+ if($("#username").val()==""){
+  alert('请输入用户名', '', function () {$("#username").focus();});
+  return false;
+ }
+ if($("#pwd").val()==""){
+  alert('请输入网站主密码', '', function () {$("#pwd").focus();});
+  return false;
+ }
+});
+});
+</script>
+
+<form id="myForm" action="index.asp?Action=userloginsave" method="post">
+    <div class="f-bar">
+        <div class="t fix">
+            <span class="t-l"><a href="#" onclick="return show('pc&');">会员登录</a></span>
+            <span class="t-r"><a href="#" onclick="return show('mobile');">手机登陆</a></span>
+        </div>
+
+
+
+        <div id="pc">
+        <div class="row">
+            <div class="inp-wrap inp-wrap-1">
+                <input type="text" name="username" id="username" tabindex="1" class="inp inp-placeholder" placeholder="用 户 名">
+            </div>
+        </div>
+ 
+         <br>
+        <div class="row">
+            <div class="inp-wrap inp-wrap-2">
+                <input type="password" name="pwd" autocomplete="off" id="pwd" tabindex="2" class="inp inp-placeholder" placeholder="登录密码">
+            </div>
+        </div>
+        <div class="blank">　</div>
+
+        <div class="blank">　</div>
+        <div class="row">
+            <input type="submit" tabindex="6" value=" " class="btn" id="userlogin" style="width:262px;margin:0px">
+        </div>
+             <div class="blank">　</div>
+        <div class="row fix">
+            <div class="code fl-l"><input id="cookies_time" tabindex="5" name="cookies_time" type="checkbox" value="10080">七天内自动登录</div>
+            <div class="code fl-r"><a href="{url_reg}">还没有注册？</a>/<a href="{url_pwdrecover}">忘记密码？</a></div>
+        </div>
+        </div>
+        <div id="mobile" style="display:none;">
+            
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="100%">
+	<tbody><tr>
+		<td align="center"><img src="images/login_m.png" width="150" border="0"></td>
+	</tr>
+    	<tr>
+		<td align="center">用手机扫描上面的二维码登陆</td>
+	</tr>
+</tbody></table>
+        </div>
+
+  </div>
+    <span id="msg"></span>
+</form>
+
+</div>
+         </div>
+    </div>
+    <div id="body">
+        <div class="g-main lay-index">
+            <div class="g-banner">
+                <div class="con" id="banner-focus">
+                    <ul class="list" style="position: relative; left: 0px; z-index: 1; height: 1080px; top: -360px;">
+                        <li style="background:url(template/151022/images/index-banner-1.png) center 0 no-repeat;"></li>
+                        <li style="background:url(template/151022/images/index-banner-2.png) center 0 no-repeat;"></li>
+                        <li style="background:url(template/151022/images/index-banner-3.png) center 0 no-repeat;"></li>
+                    </ul>
+                    <ul class="labels" style="z-index: 2;">
+                        <li index="0" class="focus"></li>
+                        <li index="1" class=""></li>
+                        <li index="2" class=""></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+	<div id="mainbody">
+		<div class="w960">
+ 
+			<div class="server">
+				<div class="content">
+					<h3>平台特性</h3>
+					<div class="description">
+						<ul>
+							<li>广告部署简单，兼容性强，实现广告位管理快捷方便。</li>
+							<li>优质丰富的广告资源，智能匹配流量，优化广告投放。</li>
+							<li>效果实时监控，多维度了解广告发布情况，掌握收益数据。</li>
+							<li>独有的广告需求方效果分析系统，实现媒体收益最大化。 </li>
+						</ul>
+						<div><a href="{url_reg}">注册会员</a></div>
+					</div>
+					<div class="kehu">
+						<ul>
+							<li><strong>我们的合作伙伴：</strong></li>
+							<li>360网站卫士</li>
+							<li>趣游互动</li>
+							<li>极限网络传媒</li>
+						</ul>
+					</div>
+					<div class="products">
+	
+						<div class="product product1">
+							<dl>
+								<dt>对点精准受众</dt>
+								<dd>跨渠道、跨区域整合媒体资源，PC、Mobile多屏合一，汇集国内主流行业网站，与各类媒体进行深入的资源对接</dd>
+ 							</dl>
+						</div>
+						
+						<div class="product product2">
+							<dl>
+								<dt>对点精准受众</dt>
+								<dd>基于跨区域媒体，对接多方资源，利用互联网一站式资源整合和多维定向技术，实现内容、地域、行为、回头客全方位定向</dd>
+							</dl>
+						</div>
+	
+					</div>
+				</div>
+			</div>
+ 
+ 
+			<div class="news">
+				<div class="content">
+					<h3><span><a href="{url_infoall}">更多...</a></span>新闻公告</h3>
+					<div class="list">
+						<ul>
+		                
+<li><span>{infolast_1_datesimple}</span><a href="{infolast_1_link}" title="{infolast_1_title}({infolast_1_date})" target="_blank">{infolast_1_title_20}</a></li>
+                                                                                     
+<li><span>{infolast_2_datesimple}</span><a href="{infolast_2_link}" title="{infolast_2_title}({infolast_2_date})" target="_blank">{infolast_2_title_20}</a></li>
+                                                                                     
+<li><span>{infolast_3_datesimple}</span><a href="{infolast_3_link}" title="{infolast_3_title}({infolast_3_date})" target="_blank">{infolast_3_title_20}</a></li>
+
+<li><span>{infolast_4_datesimple}</span><a href="{infolast_4_link}" title="{infolast_4_title}({infolast_4_date})" target="_blank">{infolast_4_title_20}</a></li>
+
+<li><span>{infolast_5_datesimple}</span><a href="{infolast_5_link}" title="{infolast_5_title}({infolast_5_date})" target="_blank">{infolast_5_title_20}</a></li>
+
+<li><span>{infolast_6_datesimple}</span><a href="{infolast_6_link}" title="{infolast_6_title}({infolast_6_date})" target="_blank">{infolast_6_title_20}</a></li>
+                                                                                     
+		                
+						</ul>
+					</div>
+					<div class="xinshou">客户服务：</div>
+					<div class="xinshoulink">
+
+<script>
+qq_1_code="{qq_1_code}";
+qq_1_nickname="{qq_1_nickname}";
+
+qq_2_code="{qq_2_code}";
+qq_2_nickname="{qq_2_nickname}";
+
+qq_3_code="{qq_3_code}";
+qq_3_nickname="{qq_3_nickname}";
+
+qq_4_code="{qq_4_code}";
+qq_4_nickname="{qq_4_nickname}";
+
+qq_5_code="{qq_5_code}";
+qq_5_nickname="{qq_5_nickname}";
+
+qq_6_code="{qq_6_code}";
+qq_6_nickname="{qq_6_nickname}";
+
+qq_7_code="{qq_7_code}";
+qq_7_nickname="{qq_7_nickname}";
+
+qq_8_code="{qq_8_code}";
+qq_8_nickname="{qq_8_nickname}";
+
+qq_9_code="{qq_9_code}";
+qq_9_nickname="{qq_9_nickname}";
+
+
+if (qq_1_code!=""){
+ document.write ("<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin="+qq_1_code+"&site=qq&menu=yes'><img border='0'  src='images/qqonline2.gif' title='点击和客服"+qq_1_nickname+"QQ号"+qq_1_code+"咨询' style='margin:4px 6px'></a>");
+}
+
+if (qq_2_code!=""){
+ document.write ("<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin="+qq_2_code+"&site=qq&menu=yes'><img border='0'  src='images/qqonline2.gif' title='点击和客服"+qq_2_nickname+"QQ号"+qq_2_code+"咨询' style='margin:4px 6px'></a>");
+}
+
+if (qq_3_code!=""){
+ document.write ("<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin="+qq_3_code+"&site=qq&menu=yes'><img border='0'  src='images/qqonline2.gif' title='点击和客服"+qq_3_nickname+"QQ号"+qq_3_code+"咨询' style='margin:4px 6px'></a>");
+}
+
+if (qq_4_code!=""){
+ document.write ("<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin="+qq_4_code+"&site=qq&menu=yes'><img border='0'  src='images/qqonline2.gif' title='点击和客服"+qq_4_nickname+"QQ号"+qq_4_code+"咨询' style='margin:4px 6px'></a>");
+}
+
+if (qq_5_code!=""){
+ document.write ("<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin="+qq_5_code+"&site=qq&menu=yes'><img border='0'  src='images/qqonline2.gif' title='点击和客服"+qq_5_nickname+"QQ号"+qq_5_code+"咨询' style='margin:4px 6px'></a>");
+}
+
+if (qq_6_code!=""){
+ document.write ("<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin="+qq_6_code+"&site=qq&menu=yes'><img border='0'  src='images/qqonline2.gif' title='点击和客服"+qq_6_nickname+"QQ号"+qq_6_code+"咨询' style='margin:4px 6px'></a>");
+}
+
+if (qq_7_code!=""){
+ document.write ("<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin="+qq_7_code+"&site=qq&menu=yes'><img border='0'  src='images/qqonline2.gif' title='点击和客服"+qq_7_nickname+"QQ号"+qq_7_code+"咨询' style='margin:4px 6px'></a>");
+}
+
+if (qq_8_code!=""){
+ document.write ("<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin="+qq_8_code+"&site=qq&menu=yes'><img border='0'  src='images/qqonline2.gif' title='点击和客服"+qq_8_nickname+"QQ号"+qq_8_code+"咨询' style='margin:4px 6px'></a>");
+}
+
+if (qq_9_code!=""){
+ document.write ("<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin="+qq_9_code+"&site=qq&menu=yes'><img border='0'  src='images/qqonline2.gif' title='点击和客服"+qq_9_nickname+"QQ号"+qq_9_code+"咨询' style='margin:4px 6px'></a>");
+}
+</script>
+<br>
+ 
+					</div>
+				</div>
+
+			</div><!-- news 结束 -->
+ 
+			<div style="clear:both"></div>
+ 
+			<div class="solutions">
+				<h3>广告类型</h3>
+				<div class="content">
+					<div class="container">
+						<div class="container2">
+ 
+							<div class="box box1" id="1">
+								<div class="title">CPC广告</div>
+								<div class="icon"><li class="img"><img src="template/151022/images/cpc.gif"></li></div>
+								<div class="text">
+									<p>精准的点击广告模式</p>
+									<p>每千次(CPC)点击计费</p>
+								</div>
+							</div>
+ 
+							<div class="box box1" id="1">
+								<div class="title">CPM广告</div>
+								<div class="icon"><li class="img"><img src="template/151022/images/cpm.gif"></li></div>
+								<div class="text">
+									<p>高效的弹出广告模式</p>
+									<p>每千次(CPM)弹出计费</p>
+								</div>
+							</div>
+		
+							<div class="box box1" id="1">
+								<div class="title">CPV广告</div>
+								<div class="icon"><li class="img"><img src="template/151022/images/cpv.gif"></li></div>
+								<div class="text">
+									<p>灵活的富媒广告模式</p>
+									<p>每千次(CPV)展示计费</p>
+								</div>
+							</div>
+		
+							<div class="box box1" id="1">
+								<div class="title">CPA广告</div>
+								<div class="icon"><li class="img"><img src="template/151022/images/cpa.gif"></li></div>
+								<div class="text">
+									<p>保守的实际成效模式</p>
+									<p>每一个(CPA)效果计费</p>
+								</div>
+							</div>
+						</div>
+	
+					</div>
+				</div>
+			</div><!-- solutions 结束 -->
+ 
+ 
+ 
+ 
+		</div><!-- w960结束 -->
+ 
+	</div>
+
+{bottom}

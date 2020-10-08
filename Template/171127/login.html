@@ -1,0 +1,87 @@
+{top}
+
+<script>
+$(function(){
+
+$("#userlogin").click(function(){
+
+if($('#username').val()==""){
+alert('请输入用户名', '', function () {$("#username").focus();});
+return false;
+}
+
+if($('#pwd').val()==""){
+alert('请输入密码', '', function () {$("#pwd").focus();});
+return false;
+}
+
+$('#form_userlogin').submit();
+
+return true;
+});
+
+});
+</script>
+
+
+<form name='form_userlogin' id=form_userlogin method='post' action='index.asp?Action=userloginsave' >
+  <div class="login_ndr">
+    <div class="login_ndr_1">
+        <h3>用户登录</h3>
+<div class="username">
+<i></i>
+<input name="username" id="username" type="text" value="" placeholder="登录账号">
+</div>
+
+<div class="pwd">
+<i></i>		
+<input name="pwd" id="pwd"  type="password" value="" placeholder="登录密码">
+</div>
+
+<div class="cookies_time">		
+<input name="cookies_time" type="checkbox" id="cookies_time" value="43200">
+记住我
+<a href="{url_pwdrecover}" style="margin-left:180px;">忘记密码</a>
+</div>
+
+<a id="userlogin" href="javascript:;" class="login_ndr_1_a" onclick='userlogincheck();'>登录</a>
+
+    </div>
+</div>
+</form>
+
+<div class="new_wrap" style="background: #f6fafd;min-height: 500px;clear: both">
+    <div class="main_wrap">
+        <div class=" huoban">
+
+
+            <p style="font-size: 35px; text-align: center;line-height: 170px">战略合作品牌</p>
+            <div class="huoban1">
+                <img src="template/171127/images/youzuwangl.jpg"  alt="">
+                <img src="template/171127/images/woniuyidong.jpg"  alt="">
+                <img src="template/171127/images/tengxunyouxi.jpg"  alt="">
+                <img src="template/171127/images/tanwanyouxi.jpg"  alt="">
+                <img src="template/171127/images/9377youxi.jpg"  alt="">
+                <img src="template/171127/images/zhongguoshouyou.jpg"  alt="">
+                <img src="template/171127/images/duoyiwangluo.jpg"  alt="">
+                <img src="template/171127/images/kingnet.jpg"  alt="">
+                <img src="template/171127/images/jurenwangluo.jpg"  alt="">
+                <img src="template/171127/images/douyuzhibo.jpg"  alt="">
+                <img src="template/171127/images/3604653dfwe636.jpg"  alt="">
+                <img src="template/171127/images/dangdangdp4343.jpg"  alt="">
+                <img src="template/171127/images/suningytgiy.jpg"  alt="">
+                <img src="template/171127/images/zhaoshangyunshonl.jpg"  alt="">
+                <img src="template/171127/images/biekepsdow.jpg"  alt="">
+                <img src="template/171127/images/liantonghiw.jpg"  alt="">
+                <img src="template/171127/images/zgyidtopsn.jpg"  alt="">
+                <img src="template/171127/images/zxcaf.jpg"  alt="">
+                <img src="template/171127/images/tianxianghudonowod.jpg"  alt="">
+                <img src="template/171127/images/937736e6fas.jpg"  alt="">
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{bottom}

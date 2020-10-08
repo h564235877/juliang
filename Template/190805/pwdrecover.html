@@ -1,0 +1,46 @@
+{top}
+
+<style type="text/css">
+input,select{
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	color: #000;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	padding: 0 5px;
+	transition: background 0.3s ease-in-out;
+	height:30px;
+}
+input:focus {
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+
+.td_r {height:50px;text-align:right;}
+#reg2 td {height:50px;}
+</style>
+
+	
+<div style="margin:80px;">
+
+
+<form name="form1" method="post" action="CF.aspx?Action=pwdsend">
+<div id="pwdrecover" style="margin-top:100px;">
+<ul>
+<li id="pwdrecover_a1">找回密码</li>
+<li id="pwdrecover_a2">系统会自动发送修改密码邮件到你的Email里</li>
+<li id="pwdrecover_a3">你的用户名：</li>
+<li id="pwdrecover_a4"><input type="text" name="username" id="username" style="line-height:28px;width:200px"></li>
+<li id="pwdrecover_a5">
+<input type="submit" name="pwdrecoverbtn" id="pwdrecoverbtn" value="取回密码" class="login_ndr_1_a" style="margin:5px;width:170px;"><span style="margin-left:15px"><a href="javascript:history.go(-1);">返回</a></span>
+</li>
+</ul>
+</div>
+</form>
+	
+</div>
+		
+
+
+{bottom}

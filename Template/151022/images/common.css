@@ -1,0 +1,124 @@
+*{padding:0; margin:0}
+a{color:#333; text-decoration:none}
+a:hover {color:#f30}
+li{list-style:none;}
+
+
+img{border:none}
+img, label, input, select, textarea{vertical-align:middle}
+input, button, textarea, select{font-size:12px; font-family:Arial}
+
+
+body{font:12px/1.5em "Î¢ÈíÑÅºÚ", Arial, "ËÎÌå"; color:#333; background:#f8f8f8}
+
+
+div.left{float:left}
+div.right{float:right}
+
+
+input.input{border:1px solid #bbb; background:#fefefe url(input_bg.gif) no-repeat; height:26px; line-height:26px; padding:0 5px}
+input.button{height:28px;cursor:pointer;border-top:1px solid #ddd;border-right:1px solid #666;border-bottom:1px solid #666;border-left:1px solid #ddd;background-color:#e4e4e4; background-repeat:no-repeat; background-position:8px center;padding:0 8px;overflow:visible}
+
+#header{background:url(header_bg.gif) repeat-x; height:104px; overflow:hidden; color:#404a58; border-bottom:1px solid #d8d8d8}
+#header .container{width:960px; margin:0 auto}
+
+
+
+#header .top{height:35px; line-height:35px; overflow:hidden; font-family:"ËÎÌå"}
+#header .top a{color:#404a58}
+#header .top a:hover{color:#f30}
+#header .top .right ul li{float:left; padding:0 10px; background:url(top_line.gif) no-repeat right center}
+#header .top .right ul li.out{background:none}
+#header .top .right ul li.user a{color:#1598d4}
+#header .bottom{height:61px; overflow:hidden}
+#header .bottom .logo{width:200px; height:61px; overflow:hidden;float:left}
+#header .bottom .logo a{display:block;background:url(logo.gif) no-repeat center 4px; width:200px; height:61px; text-indent:-9999px; }
+#header .bottom .nav{float:right; height:71px}
+#header .bottom .nav li{float:left; padding:18px 0}
+#header .bottom .nav li a{display:block; float:left; height:36px; line-height:2000px;  font-size:16px; padding:0 30px; font-weight:bold; color:#525252; overflow:hidden; background:url(nav_bg.gif) no-repeat center top}
+#header .bottom .nav li a.nav0{background-position:center top}
+#header .bottom .nav li a.nav1{background-position:center -36px}
+#header .bottom .nav li a.nav2{background-position:center -72px}
+#header .bottom .nav li a.nav3{background-position:center -108px}
+#header .bottom .nav li a.nav4{background-position:center -144px}
+#header .bottom .nav li a.nav0:hover,
+#header .bottom .nav li a.nav0current{background-position:center -179px}
+#header .bottom .nav li a.nav1:hover,
+#header .bottom .nav li a.nav1current{background-position:center -215px}
+#header .bottom .nav li a.nav2:hover,
+#header .bottom .nav li a.nav2current{background-position:center -251px}
+#header .bottom .nav li a.nav3:hover,
+#header .bottom .nav li a.nav3current{background-position:center -287px}
+#header .bottom .nav li a.nav4:hover,
+#header .bottom .nav li a.nav4current{background-position:center -323px}
+
+#header .bottom .nav li a:hover{color:#2186e7}
+#header .bottom .nav li a.current{}
+
+#header2 .top{height:35px; line-height:35px; overflow:hidden; font-family:"ËÎÌå"}
+#header2 .top a{color:#404a58}
+#header2 .top a:hover{color:#f30}
+#header2 .top .right ul li{float:left; padding:0 10px; background:url(top_line.gif) no-repeat right center}
+#header2 .top .right ul li.out{background:none}
+#header2 .top .right ul li.user a{color:#1598d4}
+#header2 .bottom{height:61px; overflow:hidden}
+
+.banner{height:403px; overflow:hidden}
+
+
+
+
+
+#mainbody{padding:15px 0}
+
+
+.w960{margin:0 auto; width:960px}
+
+
+
+
+
+#footer{height:100px; border-top:2px solid #20a2de; margin-top:20px;}
+
+#footer .sitelink{border-bottom:1px solid #ccc}
+#footer .sitelink .container{height:35px; line-height:28px;width:504px;padding-top:10px;margin:0 auto; overflow:hidden}
+#footer .sitelink .container div{width:800px; float:left}
+#footer .sitelink .container ul{float:left}
+#footer .sitelink .container ul li{float:left; padding:0 14px 0 12px; background:url(foot_link_line.gif) no-repeat right center}
+
+
+#footer .copy{height:80px;color:#555; margin-top:15px}
+#footer .copy ul li{height:25px; line-height:25px; text-align:center}
+#footer .copy ul li span{font-family:Arial}
+
+
+
+#footer div.verify{height:80px}
+
+#footer div.verify table{margin:0 auto;}
+#footer div.verify table td{padding:10px 6px;}
+#footer div.verify table a{display:block; width:128px; height:52px; line-height:10000px; overflow:hidden}
+#footer div.verify table a.net110{background:url(110.gif) no-repeat}
+#footer div.verify table a.icp{background:url(icp.gif) no-repeat}
+
+
+
+
+
+
+
+.feedback_box {position:fixed; z-index:999; right:20px; bottom:60px; width:49px; height:102px; _position:absolute; _left:expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft,10)||0)-(parseInt(this.currentStyle.marginRight,10)||0));_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))); _margin:0 20px 60px 0;} 
+
+.feedback_box a {display:block; width:50px; height:50px; margin-top:2px;}
+
+
+.feedback_box .gotop{background:url(side_gotop.gif) no-repeat}
+.feedback_box .gotop:hover{background:url(side_gotop.gif) no-repeat left -50px}
+
+
+.feedback_box a.gocontact{background:url(side_contact.gif) no-repeat}
+.feedback_box a.gocontact:hover{background:url(side_contact.gif) no-repeat left -50px}
+
+
+.feedback_box a.gofeedback{background:url(side_feedback.gif) no-repeat}
+.feedback_box a.gofeedback:hover{background:url(side_feedback.gif) no-repeat left -50px}

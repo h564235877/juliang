@@ -1,0 +1,64 @@
+
+
+
+
+.register{padding-top:2px; background:#fff; border:1px solid #ddd}
+
+.regbox{padding:2px 0 20px 20px;background:url(register_left_bg.gif) no-repeat 20px 30px; }
+
+
+.register .tabs{height:40px; line-height:40px; background:url(reg_tab_line.gif) repeat-x left bottom; padding-left:60px}
+.register .tabs ul li{float:left; height:38px; line-height:38px; padding:0 10px; font-size:14px; font-family:"Î¢ÈíÑÅºÚ"; font-weight:bold; border:1px solid #ccc; background:#f9f9f9; cursor:pointer}
+.register .tabs ul li.selected{background:#f60; border:1px solid #c24e00; color:#fff}
+ 
+
+.regbox{}
+.regbox .regleft{width:650px; float:left; border-right:1px dashed #ddd; overflow:hidden; padding:13px 20px}
+.regbox table{width:100%}
+.regbox th{font-weight:normal;text-align:right;vertical-align:top; padding:15px 15px 0 0 ; font-size:14px; width:100px}
+.regbox th b{color:#f00; font-size:12px; font-weight:normal; padding-right:5px}
+.regbox td{line-height:200%; vertical-align:top; padding:10px 0}
+.regbox td img{vertical-align:top}
+ 
+.regbox .regright{width:230px; float:right;overflow:hidden}
+ 
+.regbox .regleft .agreement{ padding-top:10px}
+.regbox .regleft .agreement a{color:#0080c9}
+
+
+input.send{background:url(register_send_button_bg.gif) repeat-x; height:23px; border:1px solid #ccc; padding:0 10px; font-weight:bold; color:#555; font-family:"Î¢ÈíÑÅºÚ"}
+ 
+
+.regbox .regright .login{line-height:200%; padding-top:30px}
+.regbox .regright .login dl{padding:0 0 30px 0; text-align:center}
+.regbox .regright .login dt{height:34px; line-height:30px; color:#555}
+.regbox .regright .login dl dd p{text-align:left; padding-left:48px; color:#666; background:url(register_dot.gif) no-repeat 30px center}
+
+.regbox .regright .btn_login{background:#f80; width:160px; height:26px;color:#fff;font-size:12px; cursor:pointer; border:none}
+ 
+div.agreement textarea{width:420px; height:75px; border:none; color:#999; font-size:12px; line-height:150%; padding:0 5px}
+.regbox .submit{width:150px; height:35px; background:#20a2de url(reg_submit_bg.gif) no-repeat; border:none; font-size:14px; font-weight:bold; color:#fff; font-family:"Î¢ÈíÑÅºÚ"; font-size:14px; font-weight:bold; cursor:pointer}
+.regbox .submit:hover{background-position:left bottom}
+
+div.tip{position:absolute; padding:0; margin:0}
+div.tip div{position:absolute}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

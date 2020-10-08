@@ -1,0 +1,247 @@
+BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+DL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+DT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+DD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+OL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+PRE {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+field {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+INPUT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+P {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+BLOCKQUOTE {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TH {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+TD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+H1 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+H2 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+H3 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+H4 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+H5 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+H6 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+BODY {
+	LINE-HEIGHT: 150%; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND: url(bg.jpg) #fff repeat-x 0px -17px; COLOR: #333333; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A {
+	COLOR: #06c; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #f30; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #f30; TEXT-DECORATION: underline
+}
+UL {
+	LIST-STYLE-TYPE: none
+}
+OL {
+	LIST-STYLE-TYPE: none
+}
+INPUT {
+	FONT-SIZE: 12px
+}
+TEXTAREA {
+	FONT-SIZE: 12px
+}
+SELECT {
+	FONT-SIZE: 12px
+}
+BUTTON {
+	FONT-SIZE: 12px
+}
+file {
+	FONT-SIZE: 12px
+}
+IMG {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+P {
+	LINE-HEIGHT: 1.8em
+}
+LI {
+	LINE-HEIGHT: 1.8em
+}
+.clear {
+	CLEAR: both
+}
+.f-l {
+	FLOAT: left
+}
+.f-r {
+	FLOAT: right
+}
+
+
+.w-500 {
+	TEXT-ALIGN: left
+}
+
+.w-500 {
+	WIDTH: 500px
+}
+
+
+.w-220 {
+	WIDTH: 220px;
+}
+.w-500 H2 {
+	POSITION: relative; LINE-HEIGHT: 31px; PADDING-LEFT: 14px; BACKGROUND: url(bg_01.gif) no-repeat 0px 0px; HEIGHT: 31px; OVERFLOW: hidden
+}
+
+.w-220 H2 {
+	POSITION: relative; LINE-HEIGHT: 31px; PADDING-LEFT: 14px; BACKGROUND: url(bg_01.gif) no-repeat 0px 0px; HEIGHT: 31px; OVERFLOW: hidden
+}
+
+H2 A {
+	TEXT-ALIGN: center; WIDTH: 90px; DISPLAY: block; FLOAT: left; FONT-SIZE: 14px; FONT-WEIGHT: normal; MARGIN-RIGHT: 6px
+}
+H2 A.s-1 {
+	LINE-HEIGHT: 27px; MARGIN-TOP: 5px; BACKGROUND: url(bg_01.gif) no-repeat -18px -55px; HEIGHT: 26px
+}
+H2 A.s-2 {
+	MARGIN-TOP: 5px; WIDTH: 120px; 
+}
+
+
+
+#head {
+	MARGIN: 0px auto;margin-bottom:10px;BACKGROUND-IMAGE: url(top_line_bg.jpg); WIDTH: 960px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 130px
+}
+#head #logo {
+	MARGIN: 0px auto;WIDTH: 960px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 91px
+}
+#head #logo H1 {
+	FLOAT: left
+}
+#head #logo P {
+	PADDING-RIGHT: 18px; MARGIN-TOP: 8px; FLOAT: right;text-align:right;
+}
+#head #logo P A {
+	COLOR: #454545
+}
+#head #logo P A STRONG {
+	FONT-WEIGHT: normal
+}
+#head #logo P EM {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+
+#menu {
+	WIDTH: 960px; BACKGROUND: url(menu_bg.gif) no-repeat 0px 0px; HEIGHT: 40px
+}
+#menu UL {
+	MARGIN-LEFT: 10px
+}
+#menu A {
+	TEXT-ALIGN: center; LINE-HEIGHT: 45px; WIDTH: 100px; DISPLAY: block; LETTER-SPACING: 6px; HEIGHT: 38px; COLOR: #454545; FONT-SIZE: 14px
+}
+
+
+#menu A:hover {
+	BACKGROUND: url(menu_bt_bg.gif) no-repeat 8px 10px;; COLOR: #fff; TEXT-DECORATION: none
+}
+#menu A.s-2 {
+	BACKGROUND: url(bg_01.gif) no-repeat -316px -76px; COLOR: #fff; FONT-WEIGHT: bold
+}
+
+.space-0 {
+	LETTER-SPACING: 0px
+}
+
+.bk-10 {
+	HEIGHT: 10px; OVERFLOW: hidden;
+}
+.bk-5 {
+	HEIGHT: 5px; OVERFLOW: hidden
+}
+.bk-50 {
+	HEIGHT: 10px; OVERFLOW: hidden
+}
+
+
+.list-1 {
+	PADDING-BOTTOM: 1px; MARGIN: 0px 8px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; PADDING-TOP: 1px
+}
+.list-1 H3 {
+	LINE-HEIGHT: 24px; HEIGHT: 24px; COLOR: #06c; FONT-WEIGHT: normal
+}
+.list-1 P {
+	LINE-HEIGHT: 16px;  MARGIN-BOTTOM: 12px; COLOR: #787878
+}
+
+.bdr {
+	BORDER-LEFT: #79c5eb 1px solid; BACKGROUND: #fff; BORDER-RIGHT: #79c5eb 1px solid
+}
+.bdr H2 {
+	MARGIN-TOP: 10px
+}
+.bdr-right {
+	BOTTOM: 0px; PADDING-RIGHT: 8px; BACKGROUND: url(bg_01.gif) #d3eef9 no-repeat right 0px; HEIGHT: 31px; RIGHT: 0px
+}
+
+
+.bdr-bottom-220 {
+	BACKGROUND: url(bg_01.gif) no-repeat -5px -183px; HEIGHT: 7px
+}
+.bdr-bottom-500 {
+	BACKGROUND: url(bg_01.gif) no-repeat -5px -244px; HEIGHT: 7px
+}
+
+
+.menu_u LI {
+	DISPLAY: inline; FLOAT: left
+}
+.menu_u LI A {
+	TEXT-ALIGN: left; DISPLAY: block
+}
+
+
+#webmain {
+	MARGIN: 0px auto 0px; WIDTH: 960px; COLOR: #0097cc
+}
+
+#footer {
+	margin:0px auto;width:960px;TEXT-ALIGN: center; LINE-HEIGHT: 18px; MARGIN-TOP: 10px; BACKGROUND: url(footbg.gif) #fff repeat-x 50% top; COLOR: #77C4EB
+}
+#footer .fnav {
+	BORDER-BOTTOM: #77C4EB 7px solid; MARGIN-BOTTOM: 10px; COLOR: #77C4EB
+}

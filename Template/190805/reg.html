@@ -1,0 +1,622 @@
+{top}
+
+
+	
+	<div style="margin:80px;">
+
+
+<script>
+$(function(){
+
+usertype_2();
+
+function usertype_1(){
+$("#t_pwdask,#t_pwdanswer,#t_siteclassid,#t_website,#t_paytype,#t_seusername").show();
+$("#t_pay_realname,#t_pay_account,#t_pay_bankaddress,#t_cousername").hide();
+}
+
+function usertype_2(){
+$("#t_cousername").show();
+$("#t_pwdask,#t_pwdanswer,#t_siteclassid,#t_website,#t_paytype,#t_pay_realname,#t_pay_account,#t_pay_bankaddress,#t_seusername").hide();
+}
+
+$("#usertype_1").click(function(){usertype_1();});
+$("#usertype_2").click(function(){usertype_2();});
+
+
+
+$('#pay_type').change(function(){ 
+if($(this).children('option:selected').val()==""||$(this).children('option:selected').val()=="select"){
+$("#t_pay_realname,#t_pay_account,#t_pay_bankaddress").hide();
+}else if($(this).children('option:selected').val()=="alipay"||$(this).children('option:selected').val()=="tenpay"){
+$("#t_pay_realname,#t_pay_account").show();
+$("#t_pay_bankaddress").hide();
+}else{
+$("#t_pay_realname,#t_pay_account,#t_pay_bankaddress").show();
+}
+})
+
+
+$("#userreg").click(function(){
+
+if(!$("#usertype_1").prop("checked")&&!$("#usertype_2").prop("checked")){
+alert('请选择用户类型', '', function () {$("#usertype_1").focus();});
+return false;
+}
+
+if($('#username').val()==""){
+alert('请填写用户名', '', function () {$("#username").focus();});
+return false;
+}
+
+if(!chkname($('#username').val())){
+alert('用户名不规则', '', function () {$("#username").focus();});
+return false;
+}
+
+var username = $("#username").val();
+var uservalid = 1;
+$.ajax({url: "cf.aspx",type: "get",async: false,data:"action=usernamechecksave&username="+username,success: function(response){
+if(response.indexOf("错误")>=0){
+uservalid=0;
+}
+}});
+if(uservalid==0){ 
+alert('此用户名已经被其它人注册', '', function () {$("#username").focus();});
+return false;
+}
+
+if($('#pwd').val()==""){
+alert('请填写密码', '', function () {$("#pwd").focus();});
+return false;
+}
+
+if($('#pwd2').val()==""){
+alert('请填写重复密码', '', function () {$("#pwd2").focus();});
+return false;
+}
+
+if($('#pwd2').val()!=$('#pwd').val()){
+alert('两次填写的密码不一样，请重新填写', '', function () {$("#pwd2").focus();});
+return false;
+}
+
+if($("#usertype_1").prop("checked")){
+if($('#pwdsak').val()==""){
+alert('请填写密码提示问题', '', function () {$("#pwdsak").focus();});
+return false;
+}
+
+if($('#pwdanswer').val()==""){
+alert('请填写密码回答答案', '', function () {$("#pwdanswer").focus();});
+return false;
+}
+}
+
+if($('#email').val()==""){
+alert('请填写email地址', '', function () {$("#email").focus();});
+return false;
+}
+
+if(!isValidEmail($('#email').val())){
+alert('email地址格式填写不正确', '', function () {$("#email").focus();});
+return false;
+}
+
+var email = $("#email").val();
+var emailvalid = 1;
+$.ajax({url: "cf.aspx",type: "get",async: false,data:"action=emailchecksave&email="+email,success: function(response){
+if(response.indexOf("错误")>=0){
+emailvalid=0;
+}
+}});
+if(emailvalid==0){
+alert('此Email已经被其它人注册', '', function () {$("#email").focus();});
+return false;
+}
+
+website = $('#website').val().toLowerCase();
+if(website!==""){
+if(isDomain(website)==false){
+alert('域名格式不正确，填写如a.com的主域名即可', '', function () {$("#website").focus();});
+return false;
+}
+if(website.substring(0,4)=="www."){
+alert('域名不要以www.开头', '', function () {$("#website").focus();});
+return false;
+}
+}
+
+
+if($("#usertype_1").prop("checked")){
+
+if($("#pay_type option:selected").val()=="select"){
+alert('请选择一种收款方式', '', function () {$("#pay_type").focus();});
+return false;
+}
+
+if($("#pay_type option:selected").val()!=""&&$("#pay_type option:selected").val()!="select"){
+if($("#pay_realname").val()==""){
+alert('请填写收款姓名', '', function () {$("#pay_realname").focus();});
+return false;
+}
+if($("#pay_account").val()==""){
+alert('请填写收款帐号', '', function () {$("#pay_realname").focus();});
+return false;
+}
+}
+
+if($("#pay_type option:selected").val()=="otherbank"&&$("#pay_bankaddress").val()==""){
+alert('选择其它银行时，开户行必须填写银行名称，银行具体地址可不必填写', '', function () {$("#pay_bankaddress").focus();});
+return false;
+}
+
+}
+
+if($('#regcheckcode').val()==""){
+alert('请输入验证码', '', function () {$("#regcheckcode").focus();});
+return false;
+}
+
+var checkcode = $("#regcheckcode").val();
+var checkvalid = 1;
+$.ajax({url: "cf.aspx",type: "get",async: false,data:"action=checkcodechecksave&checkcode="+checkcode,success: function(response){
+if(response.indexOf("错误")>=0){
+checkvalid=0;
+}
+}});
+if(checkvalid==0){ 
+alert('验证码输入错误', '', function () {$("#regcheckcode").focus();});
+regccimgchange();
+return false;
+}
+
+
+if(!$("#agreeprotocol").is(":checked")){ 
+alert('同意协议才能注册用户', '', function () {$("#agreeprotocol").focus();});
+$('#agreeprotocol').focus();
+return false;
+}
+
+});
+
+
+
+
+});
+
+
+function regccimgchange(){
+document.getElementById("regccimg").src = 'CF.aspx?Action=checkcodeget&RanStr=' + Math.random();
+}
+
+</script> 
+
+<style type="text/css">
+input,select{
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	color: #000;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	padding: 0 5px;
+	transition: background 0.3s ease-in-out;
+	height:30px;
+}
+input:focus {
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+
+.td_r {height:50px;text-align:right;}
+#reg2 td {height:50px;}
+</style>
+
+<div class="areg_form">
+
+<div id="reg">
+<form method="POST" action="CF.aspx?Action=userregsave" name="form_userreg" id="form_userreg">
+<table id="reg2">
+
+<tr> 
+<td width="20%" class="td_r"><font color="#ff0000">*</font>用户类型：</td>
+<td>
+<span id='t_usertype_1'><input name="usertype" id="usertype_1" type="radio" value="1" style="vertical-align:middle;">网站主</span>
+<span id='t_usertype_2' style="margin-left:20px;"><input name="usertype" id="usertype_2" type="radio" value="2" style="vertical-align:middle;">广告主</span>
+
+</td>
+</tr>
+
+<tr> 
+<td class="td_r"><font color="#ff0000">*</font>用户名：</td>
+<td><input name="username" type="text" id="username" size="30" onblur="aj_usernamecheck();" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+(只能为小写英文字母,数字和下划线)
+<span id='username_text'></span>
+</td>
+</tr>
+
+<tr> 
+<td class="td_r"><font color="#ff0000">*</font>密　码：</td>
+<td><input name="pwd" type="password" id="pwd" size="33" STYLE="ime-mode:inactive;width:220px">
+
+</td>
+</tr>
+
+<tr> 
+<td class="td_r"><font color="#ff0000">*</font>重复密码：</td>
+<td><input name="pwd2" type="password" id="pwd2" size="33" STYLE="ime-mode:inactive;width:220px">
+
+</td>
+</tr>
+
+<tr id="t_pwdask">
+<td class="td_r"><font color="#ff0000">*</font>密码提示问题：</td>
+<td>
+<input name="pwdask" type="text" id="pwdask"  size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+
+</td>
+</tr>
+
+<tr id="t_pwdanswer"> 
+<td class="td_r"><font color="#ff0000">*</font>密码回答答案：</td>
+<td>
+<input name="pwdanswer" type="text" id="pwdanswer"  size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+
+</td>
+</tr>
+
+<tr> 
+<td class="td_r"><font color="#ff0000">*</font>Email：</td>
+<td><input type="text" name="email" id="email" size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+
+</td>
+</tr>
+
+<tr>
+<td class="td_r">QQ：</td>
+<td><input name="qq" type="text" id="qq" size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+</td>
+</tr>
+
+<tr> 
+<td class="td_r">电话：</td>
+<td><input name="phone" type="text" id="phone" size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+</td>
+</tr>
+
+
+<tr id="t_siteclassid">
+<td class="td_r">网站类型：</td>
+<td><select name="siteclassid" id="siteclassid"  STYLE="ime-mode:inactive;width:220px">
+<option selected value="">请选择网站分类</option>
+{reg_websiteclass}
+</select>(若没有网站不需选择) 
+</td>
+</tr>
+
+<tr id="t_website"> 
+<td class="td_r">网站域名：</td>
+<td><input name="website" type="text" id="website" value="" size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">(若没有网站不需填写，填写不必带http://和www，填写主域名如：a.com)      </td>
+</tr>
+
+<tr id="t_paytype"> 
+<td class="td_r"><font color="#ff0000">*</font>收款方式：</td>
+<td>
+<select name="pay_type" id="pay_type">
+<option value="select">请选择收款方式</option>
+<option value="alipay">支付宝</option>
+<option value="tenpay">财付通</option>
+<option value="boc">中国银行</option>
+<option value="abc">农业银行</option>
+<option value="icbc">工商银行</option>
+<option value="ccb">建设银行</option>
+<option value="cmb">招商银行</option>
+<option value="otherbank">其它银行(开户行需填写银行名)</option>
+<option value="">暂不填写</option>
+</select>
+
+</td>
+</tr>
+
+<tr id="t_pay_realname"> 
+<td class="td_r"><font color="#ff0000">*</font>收款姓名：</td>
+<td><input name="pay_realname" type="text" id="pay_realname"  size="30" autoComplete="off" STYLE="ime-mode:active;width:220px">
+收款姓名必须填写汇款方式真实姓名，以后无法更改
+</td>
+</tr>
+
+
+<tr id="t_pay_account"> 
+<td class="td_r"><font color="#ff0000">*</font>收款帐号：</td>
+<td><input name="pay_account" type="text" id="pay_account"  size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+</td>
+</tr>
+
+<tr id="t_pay_bankaddress"> 
+<td class="td_r">开户行：</td>
+<td><input name="pay_bankaddress" type="text" id="pay_bankaddress"  size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px"> 
+</td>
+</tr>
+
+
+
+<tr id="t_seusername"> 
+<td class="td_r">客服专员</td>
+<td>{reg_seusername}</td>
+</tr>
+
+<tr id="t_cousername"> 
+<td class="td_r">商务专员</td>
+<td>{reg_cousername}</td>
+</tr>
+
+<tr> 
+<td class="td_r">随机验证码：</td>
+<td>
+<div  style="float:left;">
+<INPUT name=checkcode type=text id=regcheckcode value="" autoComplete="off" STYLE="ime-mode:inactive;width:60px">
+</div>
+
+<div  style="margin-left:10px;float:left;">
+<a href="javascript:regccimgchange()"><IMG id=regccimg src="CF.aspx?Action=checkcodeget&RanStr={ranstr}" title="看不清楚，换一个！" style="width:77px;height:32px"></a>
+</div>
+
+<span id='checkcode_text'></span>
+</td>
+</tr>
+
+<tr>
+<td></td>
+<td><input name="agreeprotocol" type="checkbox" id="agreeprotocol" value="1" checked style="vertical-align:middle;">
+注册此系统用户即表示你同意并承诺遵守《"{systitle}"注册协议》的全部条款。 </td>
+</tr>
+
+<tr> 
+<td>&nbsp;</td>
+<td>
+<INPUT type=image border=0 name="userreg" id="userreg" src="images/reg2.gif" style="width:110px;height:32px;border:0px;margin:10px 0px">
+</td>
+</tr>
+
+
+<tr>
+<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;用户注册协议</td>
+</tr>
+
+<tr> 
+<td colspan="2">
+<div style="width:680px;background-color:#FAFAFA;border:1px solid #CCCCCC;height:100px;overflow:auto;margin:10px;padding:6px;">
+引言：
+<br>关于推广系统条款的确认和接纳
+<br>推广系统的所有权和运作权归系统运营者所有。所提供的服务必须按照其发布的服务条款和操作规则严格执行。
+<br>用户通过完成注册程序，这表示用户与系统运营者达成协议并接受所有的
+<br>服务条款。
+<br>第一条 定义
+<br>1. 联盟会员，联盟网站，访问者
+<br>联盟会员是指向推广系统签订指定协议并登记将推广系统提供的广告等刊登在自己网站上，以收取其广告成果收入为目的，
+<br>向推广系统登记（签订由推广系统规定的协议）而取得审核的个人、法人或组织机构。
+<br>联盟网站是由联盟会员管理的网站。
+<br>访问者是指通过联盟会员网站上的各种广告创意，在推广系统募集的广告主网站上进行访问或商务往来的一般因特网使用用户。
+<br>2. 广告主，广告主网站
+<br>广告主是指委托推广系统通过联盟会员网站，在网上播放该公司的广告并进行营业活动而支付费用的个人、法人或组织机构。
+<br>广告主应拥有可以进行网上交易的商品或服务。广告主必须
+<br>事先与推广系统签订指定协议。
+<br>广告主网站是由广告主运营，提供某种服务和产品的网站。
+<br>3. 成果报酬型服务，推广系统，营销活动
+<br>成果报酬型服务是指通过推广系统，将网络营销及商品销售的广告主和通过自己网站进行营销
+<br>的网站拥有者，利用网络作为媒介，实行网上宣传及商品流通中介的服务。
+<br>推广系统是由系统运营者提供的成果报酬型服务。
+<br>营销活动是通过推广系统进行的广告主网络营销活动的统称。每一个营销活动都会设定报酬并播放在某个联盟网站上。
+<br>4. 销售
+<br>销售是指由访问者通过推广系统在广告主网上购买某种服务或产品的行为。
+<br>点击是指访问者在联盟网站上对广告主广告进行的点击的行为。
+<br>A．按浏览量(pay-per-page view)支付方式
+<br>1) 按照广告的浏览频率支付营销服务费的方式。
+<br>2) 联盟会员不能将广告主的广告创意擅自更改或者增加其他说明文字和内容。
+<br>3) 联盟会员不能将广告主的广告创意播放在联盟会员网站中FTP/DOWNLOAD部分或者输入密码后进去的部分上。
+<br>4) 广告创意的播放位置、业绩的监测、按业绩的营销服务费、结算方式等是按照推广系统和广告主协议而决定。
+<br>B．按点击(pay-per-click)支付方式
+<br>1) 通过banner点击、文字链接广告及其他正常其他引导方式，联盟会员将访问者引导、
+<br>连接到广告主指定的网站时，支付费用的方式。
+<br>2) 联盟会员不能将广告主的广告创意擅自更改或者增加其他说明文字和内容。
+<br>3) 联盟会员不能将广告主的广告创意播放在联盟会员网站中FTP/DOWNLOAD部分或者
+<br>输入密码后进去的部分上。
+<br>4) 联盟会员不能利用以java script方式的FLOATING WINDOW（浮动窗口）、没有
+<br>REFERRING PAGE的点击，以POP-UP WINDOW（弹出窗口）等方式的自动广告露出、
+<br>HIDDEN FRAME、自动更新等等的非正常方式。
+<br>5) 广告创意的播放位置、业绩的监测、按业绩的营销服务费、结算方式等是按照推广系统和广告主协议而决定的。
+<br>C. 按有效行为 (pay-per-action) 支付方式
+<br>1) 通过联盟会员网站上的链接，访问者到广告主指定的网站购买商品或服务时，根据购买金额推广系统向联盟会员支付事先约定费用的方式。
+<br>2) 在此，所指的购买是指商品或服务的购物者支付完毕，商品已送达、服务已开始，已过
+<br>该商品或服务的广告主所制定的退货或取消期间的情况。退货或取消的购买不能视为购买。
+<br>3) 通过联盟会员网站上的链接，访问者到广告主指定的网站，进行应答询问或调查、提供
+<br>其它信息、注册会员等等事先约定的事宜时，向联盟会员支付事先约定费用的方式。 5. 成果报酬成果报酬是指按照第4条A、B、C项完成浏览、点击、有效行为，推广系统给联盟会员支付的款额。
+<br>6. 链接
+<br>链接是由广告主或推广系统制作的，在加盟网站上播放的广告主广告的任何横幅，文字，按纽，图画等。
+<br>7. 有效行为
+<br>访问者点击网站主的网站上广告后，产生广告主事前指定营销效果的行为。
+<br>第二条 条款的通知及准则
+<br>1. 本条款的内容将会发布在服务页面或以其他方式告知服务使用者（以下简称“网站主”），如网站主同意本条款的内容并提交了自己的信息，推广系统将通过电子邮件等方式承认此申请并发生效力。
+<br>2. 推广系统有权更改本条款，已改条款将通过在推广系统上公布方式来通知网站主，如在10日内无异议，
+<br>即视为同意，并发生效力。
+<br>本条款的有效期为一年，一年以后无联盟会员或推广系统通知的情况下，本条款将会自动延期一年，并发生效力。
+<br>第三条 其他规定
+<br>未在本协议中提示的事项，将按照相关法律法规处理。
+<br>第四条 注册程序
+<br>1. 若要加入推广系统提供的成果报酬型网络广告平台，首先要同意本条款，并向推广系统提出加入申请。
+<br>2. 推广系统对申请人的申请书验证后，会尽快以电子邮件的方式通知申请人，允许注册的情况下将把申请时选定的用户名和密码发到注册时填写的邮箱。
+<br>第五条 服务申请资格
+<br>一、属于下列申请书内容及网站内容的，推广系统有权拒绝其申请：
+<br>1. 属于下列申请书内容：
+<br>1) 不用真实姓名的；
+<br>2) 以他人名誉申请的；
+<br>3) 记载虚假内容的；
+<br>4) 未能达到其他所规定申请条件的。
+<br>2. 属于下列网站内容：
+<br>1) 淫秽、色情的；
+<br>2) 描述暴力、恐怖的；
+<br>3) 性别歧视及民族、人种、残疾人歧视的；
+<br>4) 犯罪及非法行为；
+<br>5) 侵犯推广系统或他人的著作权、产权的内容；
+<br>6) 诽谤他人以及因特网用户，导致损害、侮辱名誉的内容；
+<br>7) 违反公共秩序及习俗的内容；
+<br>8) 违反有关法律法规的内容；
+<br>9) 其他推广系统禁用内容。
+<br>3. 属于下列网站：
+<br>1) 不能使用cookie的情况；
+<br>2) 网站拥有者年龄小于18周岁。
+<br>二、如被拒绝申请，可以与推广系统讨论修改内容以后重新申请。
+<br>第六条 推广系统义务
+<br>1. 关于服务而得到的联盟会员各项信息，未经联盟会员同意，推广系统不可泄露给第三者。但是根据相关法律法规，国家机关要求时例外。
+<br>2. 推广系统在第六条1款的目的范围内，与推广系统业务有关且联盟会员未作特定规定的情况下，
+<br>可以对全体联盟会员或部分个人信息的统计资料进行制定或提供给第三者或公开发表，
+<br>可以通过服务器向联盟会员电脑发送cookie。
+<br>3. 按照诚实信用的原则，推广系统准确跟踪联盟会员网站上发生的效果，将其向联盟会员和广告主报告，使双方当事人顺利进行结算。
+<br>联盟会员有特殊要求时，推广系统可以按照另外协议为联盟会员收益增加提供信息或咨询服务。
+<br>第七条 联盟会员义务
+<br>1. 联盟会员不能对推广系统提供的业绩监测结果提出异议。
+<br>2．联盟会员应当通过正当合法的方式向访问者介绍或劝导广告创意。不能使用不经同意的
+<br>电子邮件、其它网站留言板上提示广告创意、使用不当制作广告创意等等会给推广系统名誉损害的方式。
+<br>3．本服务条款变更后，如联盟会员继续使用推广系统提供的服务，则表示联盟会员接受经修订的
+<br>服务条款。如联盟会员不同意服务条款的相关变更，应书面通知推广系统。自联盟会员接到推广系统
+<br>认可的书面通知后，视为该联盟会员自动退出本推广系统。
+<br>4．联盟会员对所有来自推广系统，或来自向推广系统提供服务的第三方网站、公司，或来自与推广系统
+<br>有合作关系的第三方的广告内容、文本、图像等，未经推广系统或有关第三方同意，不得对其进行
+<br>任何形式的修改、补充、变更。
+<br>5．联盟会员有义务根据推广系统，或向推广系统提供服务的第三方网站、公司，或与推广系统有合作关系的第三方对广告的内容、
+<br>文本、图像等的修改、补充、删减、更新等，在其网站上对相应的广告做出变更，以保证广告内容的准确性、完整性。
+<br>6．联盟会员使用服务时，不能进行下列行为，一经发现，推广系统有权立即取消其联盟会员资格。
+<br>1） 非法使用其他联盟会员、广告主、推广系统帐号的行为。
+<br>2） 联盟会员不可擅自修改来自推广系统，或来自向推广系统提供服务的第三方网站、公司，或来自与推广系统有合作关系的第三方的广告源代码；
+<br>未经推广系统同意，也不得将此源代码提供给其它任何第三方使用、参考等。否则，由此产生任何第三方向推广系统的追偿、索赔，
+<br>推广系统有权向联盟会员追偿。
+<br>3） 将经服务得到的信息，未经推广系统同意，向第三者公开或转发的行为。
+<br>4） 侵害推广系统或第三者知识产权（含著作权）或其它权利的行为。
+<br>5） 将违反公共秩序及风俗习俗的内容、信息、文章、图形、图片等向他人公开的行为。
+<br>6） 与犯罪有关的行为。
+<br>7） 不经同意的电子邮件、留言板的使用而造成推广系统名誉损害的行为。
+<br>8） 违反有关法律法令的行为。
+<br>9） 不能拒绝推广系统发出的相关的e-mail。
+<br>10) 不允许播放过期广告。
+<br>11) 不能将推广系统提供的广告放在除联盟会员所拥有的其它网站。
+<br>12) 不能故意让访问者来完成“有效行为”包括使用垃圾邮件，BBS等其它方式。
+<br>13) 其它明显的非正当行为。
+<br>14) 其它推广系统禁用内容行为。
+<br>7. 如果联盟会员提供给推广系统的资料、信息等发生变化，包括网页地址、Email、联系电话等，应立刻通过联盟会员区中
+<br>的个人资料修改及时更改。
+<br>8. 推广系统有权随时单方面决定更改本服务条款。如服务条款有任何变更，推广系统将在"推广系统"上刊载公告，通知联盟会员。
+<br>经修订的须知一经公布后，立即自动生效。
+<br>9. 推广系统可以根据广告主需要，随时终止广告活动。
+<br>10. 联盟会员应根据广告主的要求，保证广告的投放时间，而且广告主变更广告素材或者在广告活动结束以后，若联盟网站不撤销广告代码，
+<br>推广系统有权继续使用该广告代码投放其他广告活动，但此时推广系统系统不会计入任何有效行为，并不为此支付任何成果报酬。
+<br>第八条 联盟会员的权利
+<br>（1） 联盟会员在注册登记、得到推广系统的审核后就享有推广系统提供的服务。
+<br>（2） 广告费用结算：推广系统和加盟成员将按照"有效行为单位数量"进行结算：
+<br>加盟成员每产生一个有效行为单位将按该项目的有效行为单价进行结算。
+<br>（3） 付费方式：
+<br>a. 按照在联盟会员网站上广告的实际播放数量及获得实际有效行为单位数量，推广系统将生成营销效果情况报表，供联盟会员在登录界面中查看。
+<br>b. 按照上述报表反映的实际数据与单位价格，来确定网站的广告发布收入。通常推广系统在产生“有效行为”后一个自然月
+<br>内对广告成果进行确认并在确认的后一个自然月的15日（双休日及国定假日顺延至之后的第一个工作日），按照实际结果向会员支付费用。
+<br>c. 如果广告主推迟支付广告费用，推广系统也将相应延迟支付给网站主。
+<br>d. 支付费用的最低数额为人民币壹佰（100）元整，如果当月结算的总额小于人民币壹佰（100）元，费用将会被累计到下个月一并结算。
+<br>e. 付费方式以推广系统上公布的方式为准。
+<br>f. 推广系统可以根据广告主需要，随时改变“有效行为” 的记费方式。
+<br>g. 由于费用的支付发生的相关的税金、汇款手续费由联盟会员承担。
+<br>h. 在已确认“有效行为”后，一旦发现网站主有任何欺骗和作弊行为，推广系统有权取消此有效行为并可拒绝支付成果报酬。
+<br>i. 因联盟会员提供的银行信息的错误而发生的问题，推广系统不负任何责任，不给予补偿或赔偿。同时，
+<br>因联盟会员银行信息错误等原因造成的费用和损失由联盟会员承担。
+<br>（4） 合同终止时成果报酬支付方式：
+<br>a. 本合同终止时。支付联盟会员的成果报酬以100元为单位的方式支付，未满100元的部分将不予支付。
+<br>b. 由于第17条3项和4项的原因而终止合同的，可以不支付成果报酬。
+<br>第九条 关于联盟会员帐号和密码管理
+<br>关于帐号和密码的一切管理责任在于联盟会员，由于对会员帐号和密码管理不善、非法使用等发生的一切责任在于联盟会员。
+<br>联盟会员得知自己帐号已被非法使用，应及时通知推广系统，否则后果自负。
+<br>第十条 信息提供
+<br>推广系统可以向联盟会员提供各种相关的信息服务,定期向联盟会员发送介绍特别优惠活动、网站通知的电子邮件，
+<br>若联盟会员不同意接受以上信息时，可以在注册内容中或联盟会员信息内容修改中设定拒绝，否则推广系统默认为
+<br>联盟会员同意接受服务信息。
+<br>第十一条 联盟会员的广告创意
+<br>联盟会员运用网站内容属于第五条一项2款，不遵守推广系统规定的广告创意规格时，推广系统有权指令修正或取消
+<br>其资格。在广告主要求下对广告内容进行更改时，如果更改幅度不大，可不通过联盟会员直接更改。
+<br>第十二条 服务提供中止
+<br>1. 推广系统提供7天24小时服务。由于定期检查或技术上的需要，推广系统指定的时间段除外。
+<br>2. 推广系统对如下情况可以中止提供服务。
+<br>1) 服务设备维护、检修等不得已情况。
+<br>2) 由于基础电信业务故障而造成推广系统电信线路服务中止的情况。
+<br>3) 其它不可抗力因素。 3. 由于其它原因推广系统不能正常提供服务时，推广系统可以限制提供或中止服务。
+<br>4. 对联盟会员在网站上刊登的广告创意，若有广告主提出取消要求，需提前通知联盟会员后，方可取消。
+<br>第十三条 访问者处理
+<br>对于通过联盟会员网站链接到广告主网站的访问者，从订货到付款的一切过程以及退货、维修、售后服务等一切与商品
+<br>销售相关的行为由访问者和广告主来处理。处理过程中发生的一切责任由访问者和广告主承担。
+<br>第十四条 成果检测
+<br>“有效行为”的确认原则上由广告主在“有效行为”发生后的三十天内确认，但是由于广告主的自身原因，此确认周期
+<br>可能会在三十天至九十天内。超过九十天如果广告主不作出确认，则视为自动确认为“有效行为”。但在推广系统认为合理
+<br>的情况下，仍可以改变已经确认的“有效行为”的结果。
+<br>在联盟会员网站上点击而发生一切有效行为的运算和统计，以推广系统管理部门提供的成果数据为准。
+<br>推广系统对点击行为的费用支付，仅限于IP数据的3倍以内（含3倍）。对于click数超出3倍的情况，推广系统将按IP数据3倍值
+<br>进行支付，对有作弊嫌疑的网站，推广系统有权取消其会员资格。（click数据每天更新一次）
+<br>第十五条 支付主体广告主通过推广系统系统向联盟会员支付成果报酬，并承担支付义务。推广系统受广告主委托代理向联盟会员支付报酬。推广系统
+<br>只有在全额收到广告主支付的成果报酬的前提下，才能行使这一代理业务。如若广告主对于推广系统全部或者一部分的成果报酬延迟支付，则推广系统向联盟会员的支付代理不能执行。在此情况下引起
+<br>联盟会员的全部损害全部由广告主承担，推广系统对此不承担任何责任。
+<br>第十六条 LOGO的使用
+<br>合同双方均可在自己网站上利用对方网站的LOGO，以表示两者之间的联盟关系。
+<br>第十七条 合同终止及使用限制
+<br>1. 联盟会员要终止本合同时，应当向推广系统通过电子邮件等的方式申请终止合同。推广系统确认内容后，将认可合同终止的
+<br>电子邮件发给联盟会员后合同正式终止。
+<br>2. 由于委托播放广告的广告主或广告主和推广系统之间的特殊原因不能继续登录广告的，推广系统对该广告的活动中止，
+<br>原则上应提前5天通知联盟会员停止该广告的活动，但若遇紧急情况则不受此限，该广告的佣金自中止之日开始不计算。
+<br>3. 联盟会员如超过6个月没有登录推广系统提供的管理服务中心的，可以视为不再使用本服务，因此推广系统有权取消其帐号
+<br>并中止本合同，协议自动解除，联盟会员资格将被取消，账号将被停止，并没收成果报酬。
+<br>4. 加盟会员注册后，两年内没有1次以上的有效行为时，或3次以上拒绝推广系统发出的e-mail时，协议自动解除，加盟
+<br>会员资格将被取消，账号将被停止，并没收成果报酬。
+<br>联盟会员属于第5条“服务申请资格”第1项及2项及第7条“联盟会员义务”第3项的，虽然第4条“注册程序”完毕，
+<br>推广系统可以终止本合同。
+<br>第十八条 损害赔偿
+<br>1. 推广系统对在联盟会员没有业绩期间内发生的任何损害不负责任。
+<br>联盟会员妨碍推广系统的正常活动或违约本合同内容，而发生推广系统经济损失和物质损失的，联盟会员应当有赔偿责任。
+<br>对第三者发生损失的，与推广系统无关。
+<br>第十九条 告知事项及其变更等
+<br>1. 联盟会员应当将交易上所需要的联盟会员信息按照推广系统上的格式明确记录。
+<br>变更第十八条1项中所申请的事项，联盟会员需及时按照推广系统网站上的格式申请变更，在没有申请前将会处理为未
+<br>变更，因未变更所造成的损失由联盟会员承担，不得向推广系统提出任何要求。
+<br>2. 联盟会员应定期登录推广系统管理页面对交易情况和各种数据变动进行及时的更新。若发现数据有错误应及时通知
+<br>推广系统。如果是因为联盟会员没有及时更新数据而产生问题，推广系统对此不负任何责任。第二十条 通知的效力
+<br>1. 以联盟会员申请的最后地址（可收取邮件的地址）发送时，将会推断为在普通运送期间到达。
+<br>2. 收件人要及时确认电子邮件的到达与否，发件人以发送电子邮件终止发送电子邮件的所有事宜。
+<br>第二十一条 联系方式
+<br>联盟会员与推广系统之间的联络原则上通过电子邮件或者联盟专属的站点来进行。在合同服务期内，联盟会员不得拒收来自
+<br>推广系统的电子邮件或者拒绝与推广系统联系。同理，联盟会员与广告主之间的联络原则上通过电子邮件或者联盟专属的站点来进行。在合同服务期内，联盟会员不得
+<br>拒收来自广告主的电子邮件或者拒绝与广告主联系。第二十二条 免责条款
+<br>1. 推广系统由于自然灾害或不可抗力的因素无法提供服务时，可对所提供的服务概不负责。 2. 推广系统对因联盟会员的原因发生的服务使用障碍概不负责。
+<br>3. 推广系统对联盟会员或广告主在服务中所记载的信息、资料事实的信用度、正确性等内容概不负责。
+<br>4. 推广系统概不保证联盟会员一定金额以上的成果报酬收入。此外，对因通过服务所得到的信息资料而发生损失，推广系统概不负责。
+<br>推广系统对联盟会员或访问者的非法行为、不正当行为以及其他行为概不负责。
+<br>第二十三条 纠纷处理
+<br>联盟会员与推广系统一致同意：
+<br>1. 双方应持平等、友好、争取合理解决问题的态度；
+<br>2. 因服务使用发生纠纷时，首先以协商方式解决。如协商未果，则应当就该纠纷上发生的一切事项向推广系统所在地法院提起仲裁。
+<br>第二十四条
+<br>推广系统可以随时更改以上条款。
+<br>第二十五条
+<br>您只有无条件接受以上所有服务条款，才能继续申请。
+</div>
+</tr>
+</table>
+</form>
+</div>
+
+</div>
+
+
+
+</div>
+		
+		<div class="page">
+        	<div class="page-bd">
+
+              </div>
+              </div>
+            </div>
+
+{bottom}

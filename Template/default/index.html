@@ -1,0 +1,242 @@
+{top}
+
+<table style="margin:0px auto;width:960px">
+  <tr> 
+    <td width="270" valign="top">
+	
+<table class="index_tb">
+        <tr>
+          <td class="index_td">用户登录</td>
+        </tr>
+        <tr>
+          <td>
+
+
+{userlogin}
+
+</td>
+        </tr>
+</table>
+	  
+<table class="index_tb">
+        <tr>
+          <td class="index_td">在线客服</td>
+        </tr>
+        <tr>
+          <td>
+{qqonline}
+</td>
+        </tr>
+</table>
+
+<table class="index_tb">
+        <tr>
+          <td class="index_td">联系我们</td>
+        </tr>
+        <tr>
+          <td style="padding:5px;">
+{index_lxwm}
+</td>
+        </tr>
+</table>
+	  
+<table class="index_tb">
+        <tr>
+          <td class="index_td">用户推广排行</td>
+        </tr>
+        <tr>
+          <td>
+{usertop}
+</td>
+        </tr>
+</table>
+	  
+<table class="index_tb">
+        <tr>
+          <td class="index_td">最新结算记录</td>
+        </tr>
+        <tr>
+          <td>
+{spendlast}
+</td>
+        </tr>
+</table>
+	  
+<table class="index_tb">
+        <tr>
+          <td class="index_td">最新网站主</td>
+        </tr>
+        <tr>
+          <td>
+{userlast}
+</td>
+        </tr>
+</table>
+
+<table class="index_tb">
+        <tr>
+          <td class="index_td">最新注册广告主</td>
+        </tr>
+        <tr>
+          <td>
+{aduserlast}
+</td>
+        </tr>
+</table>
+	  
+</td>
+    <td valign="top" style="padding-left:8px">
+
+
+
+<table>
+  <tr>
+      <td style="padding-top:2px">
+
+
+
+<script type="text/javascript" src="template/default/images/tween.js"></script>
+<div id="picplayer" style="position:relative;overflow:hidden;width:730px;height:214px;clear:none;border:solid 1px #ccc;"> 
+there is a pic-player 
+</div> 
+        <script> 
+            var p = $('#picplayer'); 
+            var pics1 = [{url:'template/default/images/flash1.jpg',link:'{url_reg}',time:5000},{url:'template/default/images/flash2.jpg',link:'{url_reg}',time:4000},{url:'template/default/images/flash3.jpg',link:'{url_reg}',time:6000}]; 
+            initPicPlayer(pics1,p.css('width').split('px')[0],p.css('height').split('px')[0]); 
+            // 
+            // 
+            function initPicPlayer(pics,w,h) 
+            { 
+                //选中的图片 
+                var selectedItem; 
+                //选中的按钮 
+                var selectedBtn; 
+                //自动播放的id 
+                var playID; 
+                //选中图片的索引 
+                var selectedIndex; 
+                //容器 
+                var p = $('#picplayer'); 
+                p.text(''); 
+                p.append('<div id="piccontent"></div>'); 
+                var c = $('#piccontent'); 
+                for(var i=0;i<pics.length;i++) 
+                { 
+                    //添加图片到容器中 
+                    c.append('<a href="'+pics[i].link+'"><img id="picitem'+i+'" style="display: none;z-index:'+i+'" src="'+pics[i].url+'" /></a>'); 
+                } 
+                //按钮容器，绝对定位在右下角 
+                p.append('<div id="picbtnHolder" style="position:absolute;top:'+(h-25)+'px;width:'+w+'px;height:20px;z-index:10000;"></div>'); 
+                // 
+                var btnHolder = $('#picbtnHolder'); 
+                btnHolder.append('<div id="picbtns" style="float:right; padding-right:1px;"></div>'); 
+                var btns = $('#picbtns'); 
+                // 
+                for(var i=0;i<pics.length;i++) 
+                { 
+                    //增加图片对应的按钮 
+                    btns.append('<span id="picbtn'+i+'" style="cursor:pointer; border:solid 1px #ccc;background-color:#eee; display:inline-block;">&nbsp;'+(i+1)+'&nbsp;</span>&nbsp;'); 
+                    $('#picbtn'+i).data('index',i); 
+                    $('#picbtn'+i).click( 
+                        function(event) 
+                        { 
+                            if(selectedItem.attr('src') == $('#picitem'+$(this).data('index')).attr('src')) 
+                            { 
+                                return; 
+                            } 
+                            setSelectedItem($(this).data('index')); 
+                        } 
+                    ); 
+                } 
+                btns.append(' '); 
+                /// 
+                setSelectedItem(0); 
+                //显示指定的图片index 
+                function setSelectedItem(index) 
+                { 
+                    selectedIndex = index; 
+                    clearInterval(playID); 
+                    //alert(index); 
+                    if(selectedItem)selectedItem.fadeOut('fast'); 
+                    selectedItem = $('#picitem'+index); 
+                    selectedItem.fadeIn('slow'); 
+                    // 
+                    if(selectedBtn) 
+                    { 
+                        selectedBtn.css('backgroundColor','#eee'); 
+                        selectedBtn.css('color','#000'); 
+                    } 
+                    selectedBtn = $('#picbtn'+index); 
+                    selectedBtn.css('backgroundColor','#000'); 
+                    selectedBtn.css('color','#fff'); 
+                    //自动播放 
+                    playID = setInterval(function() 
+                    { 
+                        var index = selectedIndex+1; 
+                        if(index > pics.length-1)index=0; 
+                        setSelectedItem(index); 
+                    },pics[index].time); 
+                } 
+            } 
+ </script> 
+
+
+</td>  
+  </tr>
+</table>
+
+
+<table class="index_tb">
+        <tr>
+          <td class="index_td">最新公告&nbsp;&nbsp;<a href="{url_infoall}">浏览全部公告..</a></td>
+        </tr>
+        <tr>
+          <td>{infolast}</td>
+        </tr>
+</table>
+
+<table class="index_tb">
+        <tr>
+          <td class="index_td">广告类型</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;">{index_gglx}</td>
+        </tr>
+</table>
+
+
+<table class="index_tb">
+        <tr>
+          <td class="index_td">网站主</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;">{index_wyhwzz}</td>
+        </tr>
+</table>
+
+<table class="index_tb">
+        <tr>
+          <td class="index_td">广告主</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;">{index_ggz}</td>
+        </tr>
+</table>
+
+
+<table class="index_tb">
+        <tr>
+          <td class="index_td">本于关系统</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;">{index_gybxt}</td>
+        </tr>
+</table>
+
+
+
+</td>
+  </tr>
+</table>
+
+{bottom}

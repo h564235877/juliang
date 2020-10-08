@@ -1,0 +1,59 @@
+{top}
+
+<script>
+$(function(){
+$("#userlogin").click(function(){
+ if($("#username").val()==""){
+  alert('请输入用户名', '', function () {$("#username").focus();});
+  return false;
+ }
+ if($("#pwd").val()==""){
+  alert('请输入网站主密码', '', function () {$("#pwd").focus();});
+  return false;
+ }
+});
+});
+</script>
+
+<div class="lyear-login-box">
+  <div class="lyear-login-left" style="background-image: url(template/m4/images/login-bg-4.jpg)">
+    <div class="lyear-overlay"></div>
+    <div class="lyear-featured">
+      <h4>愿你有好运气，如果没有，愿你在不幸中学会慈悲；愿你被很多人爱，如果没有，愿你在寂寞中学会宽容。<small> - 刘瑜《愿你慢慢长大》</small></h4>
+    </div>
+  </div>
+  <div class="lyear-login-right">
+    
+    <div class="lyear-logo text-center"> 
+      <a href="{url_index}"><img src="template/m4/images/logo-sidebar.png" alt="logo" /></a> 
+    </div>
+    <form action="index.asp?Action=userloginsave" method="post" name="form_indexlogin" class="form-signin form-validate">
+      <div class="form-group">
+        <label for="username">用户名</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="请输入您的用户名">
+      </div>
+
+      <div class="form-group">
+        <label for="password">密码</label>
+        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="请输入您的密码">
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-block btn-primary" type="submit">立即登录</button>
+      </div>
+	  
+        <div class="form-group">
+          <label class="lyear-checkbox checkbox-primary m-t-10">
+			<a href="{url_pwdrecover}">忘记密码</a>  |  <a href="{url_reg}">立即注册</a>
+          </label>
+        </div>
+		
+      <footer class="text-center">
+        <p class="m-b-0">Copyright&nbsp;&copy;&nbsp;All Rights Reserved.</p>
+      </footer>
+    </form>
+    
+  </div>
+</div>
+
+{bottom}

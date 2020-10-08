@@ -1,0 +1,57 @@
+{top}
+
+<script>
+$(function(){
+
+$("#userlogin").click(function(){
+
+if($('#username').val()==""){
+alert('请输入用户名', '', function () {$("#username").focus();});
+return false;
+}
+
+if($('#pwd').val()==""){
+alert('请输入密码', '', function () {$("#pwd").focus();});
+return false;
+}
+
+$('#form_userlogin').submit();
+
+return true;
+});
+
+});
+</script>
+
+	<div class="banner box-lazy1">
+		<div class="banner-img">
+			<ul>
+				<li>
+					<img src="template/190805/images/img1920_1.jpg" class="lazy fadeIn animated" data-delay=".3s" data-class="fadeIn animated" style="animation-delay: 0.3s; visibility: visible;">
+					<div class="textbg lazy fadeIn animated" data-delay=".6s" data-class="fadeIn animated" style="animation-delay: 0.6s; visibility: visible;">
+						<div class="box">
+							<form id="form1" name="form1" method="post" action="index.asp?Action=userloginsave" onsubmit="return doLogin()">
+								<div class="login lazy fadeInDown animated" data-delay=".8s" data-class="fadeInDown animated" style="animation-delay: 0.8s; visibility: visible;">
+				
+
+									<div id="login-tips"></div>
+									<div class="verify mg-t">
+										<label>用户名：</label>
+										<input id="username" name="username" class="input" value="" type="text" placeholder="请输入用户名">
+									</div>
+									<div class="verify">
+										<label>密码：</label>
+										<input id="pwd" name="pwd" class="input" value="" type="password" placeholder="请输入密码">
+									</div>
+									<div class="mg"><input id="userlogin" type="submit" value="立即登录" class="btn"></div>
+									<div class="mg text"><a href="{url_pwdrecover}" id="forgetpassword" class="c1">忘记密码？</a>还没有联盟账号？<a href="{url_reg}" class="c2">点此注册</a></div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+{bottom}

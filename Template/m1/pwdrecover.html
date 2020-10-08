@@ -1,0 +1,48 @@
+{top}
+
+
+
+
+<div class="row lyear-wrapper" style="background-image: url(template/m1/images/login-bg.jpg); background-size: cover;">
+  <div class="lyear-login">
+    <div class="login-center">
+      <div class="login-header text-center">
+        <a href="{url_index}"> <img alt="light year admin" src="template/m1/images/logo-sidebar.png"> </a>
+      </div>
+
+<script>
+$(function(){
+$("#pwdrecoverbtn").click(function(){
+ if($("#username").val()==""){
+  alert('请输入用户名', '', function () {$("#username").focus();});
+  return false;
+ }
+});
+});
+</script>
+<form name="form1" method="post" action="CF.aspx?Action=pwdsend">
+<div id="pwdrecover">
+<ul>
+<li id="pwdrecover_a1">找回密码</li>
+<li id="pwdrecover_a2">系统会自动发送修改密码邮件到你的Email里</li>
+<li id="pwdrecover_a3">你的用户名：</li>
+<li id="pwdrecover_a4"><input type="text" name="username" id="username"></li>
+<li id="pwdrecover_a5">
+<input type="submit" name="pwdrecoverbtn" id="pwdrecoverbtn" value="取回密码"><span style="margin-left:15px"><a href="javascript:history.go(-1);">返回</a></span>
+</li>
+</ul>
+</div>
+</form>
+{pwdrecoverother}
+      <hr>
+      <footer class="col-sm-12 text-center">
+        <p class="m-b-0">Copyright&nbsp;&copy;&nbsp;All Rights Reserved.</p>
+      </footer>
+    </div>
+  </div>
+</div>
+
+
+
+
+{bottom}
