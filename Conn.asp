@@ -9,7 +9,7 @@
 %>
 <%
 DbAddress="localhost" 	'--请输入Sqlserver服务器的IP地址，数据库和程序在同一台服务器上只要填写localhost就可以
-DbUser="sa"           	'--请输入连接Sqlserver服务器的用户名
+DbUser="juliang"           	'--请输入连接Sqlserver服务器的用户名
 DbPassword="cf1234"     '--请输入连接Sqlserver服务器的密码
 DbName="cfwztgsqlv653"     		'--请输入Sqlserver服务器的数据库名称 
 
