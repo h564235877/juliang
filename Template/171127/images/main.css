@@ -135,7 +135,6 @@ body {
     -webkit-font-smoothing: antialiased;
     font: 14px/1.6 PingFangSC-Light,'helvetica neue','hiragino sans gb',tahoma,'microsoft yahei ui','microsoft yahei',simsun,sans-serif;
     background-color: #fff;
-    padding-top: 80px;
     min-height: 100%
 }
 
@@ -158,7 +157,6 @@ a:hover {
 
 .wrapper {
     background-color: #f9f9f9;
-    padding-top: 66px
 }
 
 html {
@@ -452,9 +450,11 @@ html {
 
 .navbar .navbar-navigation {
     *zoom: 1;
-    float: left;
+    float: right;
     list-style: none;
 	font-size: 18px;
+    margin-top:8px;
+    margin-right: 30px;
 }
 
 .navbar .navbar-navigation:after,.navbar .navbar-navigation:before {
@@ -571,10 +571,7 @@ html {
 }
 
 .navbar .navbar-panel .panel-action {
-    margin: 0;
-    position: absolute;
-    top: -61px;
-    right: 0
+    margin-top:5px;
 }
 
 .navbar-minimal {
@@ -948,7 +945,7 @@ a {
 .hero {
     width: 100%;
     height: 350px;
-    margin-top: 66px;
+    margin-top: 80px;
     *overflow: hidden;
     background-size: cover
 }
@@ -7190,7 +7187,7 @@ code {
     float: left;
     margin: 10px 22px;
 }
-.jiemengliula{width: 100%; height: 805px;background: url("jiemengerying.jpg") no-repeat center top;position: relative}
+.jiemengliula{width: 100%; height: 805px;background: url("jiemengerying.jpg") no-repeat center top;position: relative;margin-top: 80px;}
 .jiemengliula a {
     text-indent: -9999px;
     display: block;
@@ -7217,7 +7214,7 @@ code {
 }
 .container {
     margin: 0 auto;
-    width: 1000px;
+    width: 1256px;
 }
 .m-title {
     background-image: url("sf686qodmeh.png");
@@ -7323,7 +7320,21 @@ code {
 .cpv_form_x_3 dd h3{margin-top:65px;}
 .cpv_form_x_3 dd p{line-height: 30px}
 
-.areg_form{width:870px;border:1px solid #e0e0e0;padding: 4px 64px 15px 64px; margin: 100px auto 50px}
+.areg_form{
+    width:520px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0px rgba(255,255,255,.3);
+    overflow: hidden;
+}
+#reg{
+    width:100%;
+    margin:0 auto;
+}
+#reg form>table{
+    width: 100%;
+    margin:0 auto;
+}
 .areg_form_h1{ text-align: center;font-size: 40px; margin-bottom: 50px}
 .reservation_areg{padding: 0}
 
@@ -7334,14 +7345,48 @@ code {
     position: relative;
 }
 
+#userreg{
+    width:220px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    border:0px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    background-color: #008fe4;
+    cursor: pointer;
+}
+#t_usertype_1,#t_usertype_2{
+    float: left;
+    width:50%;
+    height: 50px;
+    line-height:50px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 16px;
+}
+.type_active{
+    background-color: #008fe4;
+    color: #fff;
+}
+#t_usertype_1 input[type=radio],#t_usertype_2 input[type=radio]{
+    display: none;
+}
+.agreement_td{
+   text-align: center;
+}
 .adskfQQ{ width: 870px;border:1px solid #ddd ; min-height: 280px;}
 .adskfQQ span{float: left; margin:20px 16px 0 20px }
 
-.login_ndr{ width: 100%; min-height: 450px; background: #f6fafd;padding-top: 150px}
-.login_ndr_1{ width: 445px; height: 340px; margin: 0 auto; background: #fff;padding-top: 30px;}
-.login_ndr_1 h3{ text-align: center; font-size: 28px;}
+.login_ndr{ width: 100%;}
+.login_ndr_1{ width: 520px; height: 340px; margin: 0 auto; background: #fff;padding-top: 30px; border-radius: 10px;box-shadow: 0 0 15px 0px rgba(255,255,255,.3);}
+.login_ndr_1 h3{ text-align: center; font-size: 28px;font-weight: bold;letter-spacing: 2px}
 
-.login_ndr_1_a{color: #fff;
+.login_ndr_1_a{
+    color: #fff;
     cursor: pointer;
     display: inline-block;
     font-size: 18px;
@@ -7350,7 +7395,10 @@ code {
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
-    width: 300px;background: #008fe4; margin: 10px 70px}
+    width: 300px;
+    background: #008fe4; 
+    margin: 30px 70px 10px 110px;
+}
 .login_ndr_1_a:hover{color: #fff}
 
 
@@ -7364,7 +7412,8 @@ code {
     position: relative;
     background: #fff;
 	float:left;	
-	margin-left:70px;
+	margin-left:110px;
+    margin-top:20px;
 }
 .username i {
     background: url(username_bg.png) no-repeat;
@@ -7387,7 +7436,7 @@ code {
     background: #fff;
 	float:left;	
 	margin-top:15px;
-	margin-left:70px;
+	margin-left:110px;
 }
 .pwd i {
     background: url(password_bg.png) no-repeat;
@@ -7400,7 +7449,85 @@ code {
 }
 .pwd input{border: 0;width: 278px;margin-left:32px;}
 
-.cookies_time{width: 300px;height: 20px;position: relative;clear:both;margin-top:110px;margin-bottom:1px;margin-left:70px;}
+.cookies_time{width: 300px;height: 20px;position: relative;clear:both;margin-top:130px;margin-bottom:1px;margin-left:110px;}
 .cookies_time  checkbox{width:16px;}
 
+.argeement_bg{
+    position:fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
+
+.argeement
+{
+    width:1256px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 3px rgba(255,255,255,.3);
+    padding: 15px;
+    line-height: 25px;
+
+}
+.argeement .argeement_con{
+    width:100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 5px;
+}
+.argeement_con::-webkit-scrollbar{
+    width:5px;
+    margin-right: 10px;
+}
+.argeement_con::-webkit-scrollbar-thumb{
+    background-color: #999;
+    border-radius: 3px;
+}
+.argeement_con::-webkit-scrollbar-track{
+    border-radius: 3px;
+    background: #ededed;
+}
+.argeement h2{
+    width:100%;
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.argeement h3{
+    font-weight: bold;
+    margin-top: 10px;
+}
+.argeement p{
+    margin-top: 5px;
+}
+.close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.close .close_btn{
+    width:120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #00ac18;
+    font-size: 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
 
