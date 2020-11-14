@@ -1,6 +1,5 @@
 {top}
 
-
 <script>
 $(function(){
 let h=$(window).height();
@@ -10,40 +9,19 @@ usertype_1();
 function usertype_1(){
 	$("#t_usertype_2").removeClass("type_active");
 	$("#t_usertype_1").addClass("type_active");
-	$("#usertype_2").attr("checked",false);
-	$("#usertype_1").attr("checked",true);
+	$("#usertype").val(1);
 }
 
 function usertype_2(){
 	$("#t_usertype_1").removeClass("type_active");
 	$("#t_usertype_2").addClass("type_active");
-	$("#usertype_1").attr("checked",false);
-	$("#usertype_2").attr("checked",true);
+	$("#usertype").val(2);
 }
 
 $("#t_usertype_1").click(function(){usertype_1();});
 $("#t_usertype_2").click(function(){usertype_2();});
 
-
-
-// $('#pay_type').change(function(){ 
-// if($(this).children('option:selected').val()==""||$(this).children('option:selected').val()=="select"){
-// $("#t_pay_realname,#t_pay_account,#t_pay_bankaddress").hide();
-// }else if($(this).children('option:selected').val()=="alipay"||$(this).children('option:selected').val()=="tenpay"){
-// $("#t_pay_realname,#t_pay_account").show();
-// $("#t_pay_bankaddress").hide();
-// }else{
-// $("#t_pay_realname,#t_pay_account,#t_pay_bankaddress").show();
-// }
-// })
-
-
 $("#userreg").click(function(){
-
-// if(!$("#usertype_1").prop("checked")&&!$("#usertype_2").prop("checked")){
-// alert('请选择用户类型', '', function () {$("#usertype_1").focus();});
-// return false;
-// }
 
 if($('#username').val()==""){
 alert('请填写用户名', '', function () {$("#username").focus();});
@@ -82,79 +60,6 @@ alert('两次填写的密码不一样，请重新填写', '', function () {$("#pwd2").focus();})
 return false;
 }
 
-// if($("#usertype_1").prop("checked")){
-// if($('#pwdsak').val()==""){
-// alert('请填写密码提示问题', '', function () {$("#pwdsak").focus();});
-// return false;
-// }
-
-// if($('#pwdanswer').val()==""){
-// alert('请填写密码回答答案', '', function () {$("#pwdanswer").focus();});
-// return false;
-// }
-// }
-
-// if($('#email').val()==""){
-// alert('请填写email地址', '', function () {$("#email").focus();});
-// return false;
-// }
-
-// if(!isValidEmail($('#email').val())){
-// alert('email地址格式填写不正确', '', function () {$("#email").focus();});
-// return false;
-// }
-
-// var email = $("#email").val();
-// var emailvalid = 1;
-// $.ajax({url: "cf.aspx",type: "get",async: false,data:"action=emailchecksave&email="+email,success: function(response){
-// if(response.indexOf("错误")>=0){
-// emailvalid=0;
-// }
-// }});
-// if(emailvalid==0){
-// alert('此Email已经被其它人注册', '', function () {$("#email").focus();});
-// return false;
-// }
-
-
-// website = $('#website').val().toLowerCase();
-// if(website!==""){
-// if(isDomain(website)==false){
-// alert('域名格式不正确，填写如a.com的主域名即可', '', function () {$("#website").focus();});
-// return false;
-// }
-// if(website.substring(0,4)=="www."){
-// alert('域名不要以www.开头', '', function () {$("#website").focus();});
-// return false;
-// }
-// }
-
-
-// if($("#usertype_1").prop("checked")){
-
-// if($("#pay_type option:selected").val()=="select"){
-// alert('请选择一种收款方式', '', function () {$("#pay_type").focus();});
-// return false;
-// }
-
-// if($("#pay_type option:selected").val()!=""&&$("#pay_type option:selected").val()!="select"){
-// if($("#pay_realname").val()==""){
-// alert('请填写收款姓名', '', function () {$("#pay_realname").focus();});
-// return false;
-// }
-// if($("#pay_account").val()==""){
-// alert('请填写收款帐号', '', function () {$("#pay_realname").focus();});
-// return false;
-// }
-// }
-
-// if($("#pay_type option:selected").val()=="otherbank"&&$("#pay_bankaddress").val()==""){
-// alert('选择其它银行时，开户行必须填写银行名称，银行具体地址可不必填写', '', function () {$("#pay_bankaddress").focus();});
-// return false;
-// }
-
-// }
-
 if($('#regcheckcode').val()==""){
 alert('请输入验证码', '', function () {$("#regcheckcode").focus();});
 return false;
@@ -162,11 +67,17 @@ return false;
 
 var checkcode = $("#regcheckcode").val();
 var checkvalid = 1;
-$.ajax({url: "cf.aspx",type: "get",async: false,data:"action=checkcodechecksave&checkcode="+checkcode,success: function(response){
-if(response.indexOf("错误")>=0){
-checkvalid=0;
-}
-}});
+$.ajax({
+	url: "cf.aspx",
+	type: "get",
+	async: false,
+	data:"action=checkcodechecksave&checkcode="+checkcode,
+	success: function(response){
+		if(response.indexOf("错误")>=0){
+			checkvalid=0;
+		}
+	}
+});
 if(checkvalid==0){ 
 alert('验证码输入错误', '', function () {$("#regcheckcode").focus();});
 regccimgchange();
@@ -175,14 +86,12 @@ return false;
 
 
 if(!$("#agreeprotocol").is(":checked")){ 
-alert('同意协议才能注册用户', '', function () {$("#agreeprotocol").focus();});
-$('#agreeprotocol').focus();
-return false;
+	alert('同意协议才能注册用户', '', function () {$("#agreeprotocol").focus();});
+	$('#agreeprotocol').focus();
+	return false;
 }
 
 });
-
-
 
 
 });
@@ -241,16 +150,18 @@ input:focus {
 
 <tr> 
 <td colspan="2" style="vertical-align:top;">
-	<div id='t_usertype_1' class="type_active"><input name="usertype" id="usertype_1" type="radio" value="1">网站主</div>
-	<div id='t_usertype_2'><input name="usertype" id="usertype_2" type="radio" value="2">广告主</div>
+	<div id='t_usertype_1' class="type_active">网站主</div>
+	<div id='t_usertype_2'>广告主</div>
+	<input name="usertype" id="usertype" type="text" style="display: none;">
 </td>
 </tr>
 <tr><td colspan="2" style="height: 5px;vertical-align:top;">&nbsp;</td></tr>
 <tr> 
 <td class="td_r">用户名：</td>
-<td><input name="username" type="text" id="username" size="30" onblur="aj_usernamecheck();" autoComplete="off" STYLE="ime-mode:inactive;width:220px;">
-<span id='username_text'></span>
-</td>
+	<td>
+		<input name="username" type="text" id="username" size="30"  autoComplete="off" STYLE="ime-mode:inactive;width:220px;">
+		<span id='username_text'></span>
+	</td>
 </tr>
 
 <tr> 
@@ -267,105 +178,28 @@ input:focus {
 </td>
 </tr>
 
-<!-- <tr id="t_pwdask">
+<tr id="t_pwdask" style="display: none;">
 <td class="td_r"><font color="#ff0000">*</font>密码提示问题：</td>
 <td>
-<input name="pwdask" type="text" id="pwdask"  size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+<input name="pwdask" type="text" id="pwdask"  size="30" autoComplete="off" value="默认答案为1234，为账户安全请及时修改">
 
 </td>
 </tr>
 
-<tr id="t_pwdanswer"> 
+<tr id="t_pwdanswer" style="display: none"> 
 <td class="td_r"><font color="#ff0000">*</font>密码回答答案：</td>
 <td>
-<input name="pwdanswer" type="text" id="pwdanswer"  size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+<input name="pwdanswer" type="text" id="pwdanswer"  size="30" autoComplete="off" value="1234" >
 
 </td>
 </tr>
 
-<tr> 
+<tr style="display: none;"> 
 <td class="td_r"><font color="#ff0000">*</font>Email：</td>
-<td><input type="text" name="email" id="email" size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
+<td><input type="text" name="email" id="email" size="30" autoComplete="off" value=" " >
 
 </td>
 </tr>
-
-<tr>
-<td class="td_r">QQ：</td>
-<td><input name="qq" type="text" id="qq" size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
-</td>
-</tr>
-
-<tr> 
-<td class="td_r">电话：</td>
-<td><input name="phone" type="text" id="phone" size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
-</td>
-</tr>
-
-
-<tr id="t_siteclassid">
-<td class="td_r">网站类型：</td>
-<td><select name="siteclassid" id="siteclassid"  STYLE="ime-mode:inactive;width:220px">
-<option selected value="">请选择网站分类</option>
-{reg_websiteclass}
-</select>(若没有网站不需选择) 
-</td>
-</tr>
-
-<tr id="t_website"> 
-<td class="td_r">网站域名：</td>
-<td><input name="website" type="text" id="website" value="" size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">(若没有网站不需填写，填写不必带http://和www，填写主域名如：a.com)      </td>
-</tr>
-
-<tr id="t_paytype"> 
-<td class="td_r"><font color="#ff0000">*</font>收款方式：</td>
-<td>
-<select name="pay_type" id="pay_type">
-<option value="select">请选择收款方式</option>
-<option value="alipay">支付宝</option>
-<option value="tenpay">财付通</option>
-<option value="boc">中国银行</option>
-<option value="abc">农业银行</option>
-<option value="icbc">工商银行</option>
-<option value="ccb">建设银行</option>
-<option value="cmb">招商银行</option>
-<option value="otherbank">其它银行(开户行需填写银行名)</option>
-<option value="">暂不填写</option>
-</select>
-
-</td>
-</tr>
-
-<tr id="t_pay_realname"> 
-<td class="td_r"><font color="#ff0000">*</font>收款姓名：</td>
-<td><input name="pay_realname" type="text" id="pay_realname"  size="30" autoComplete="off" STYLE="ime-mode:active;width:220px">
-收款姓名必须填写汇款方式真实姓名，以后无法更改
-</td>
-</tr>
-
-
-<tr id="t_pay_account"> 
-<td class="td_r"><font color="#ff0000">*</font>收款帐号：</td>
-<td><input name="pay_account" type="text" id="pay_account"  size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px">
-</td>
-</tr>
-
-<tr id="t_pay_bankaddress"> 
-<td class="td_r">开户行：</td>
-<td><input name="pay_bankaddress" type="text" id="pay_bankaddress"  size="30" autoComplete="off" STYLE="ime-mode:inactive;width:220px"> 
-</td>
-</tr>
-
-
-<tr id="t_seusername"> 
-<td class="td_r">客服专员</td>
-<td>{reg_seusername}</td>
-</tr>
-
-<tr id="t_cousername"> 
-<td class="td_r">商务专员</td>
-<td>{reg_cousername}</td>
-</tr> -->
 
 <tr> 
 <td class="td_r">验证码：</td>
@@ -391,7 +225,7 @@ input:focus {
 
 <tr>
 <td colspan="2" style="text-align: center;">
-<INPUT type="button" border=0 name="userreg" id="userreg" value="立即注册">
+<INPUT type="submit" border=0 name="userreg" id="userreg" value="立即注册">
 </td>
 </tr>
 

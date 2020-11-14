@@ -141,7 +141,7 @@ If Rs2("UserState")=0 Then
 </tr>
 <%Else%>
 <tr> 
-<td class="td_r">收款方式</td>
+<td class="td_r">收款方式：</td>
 <td>
 <%
 If Rs2("pay_type")="alipay" Then
@@ -157,7 +157,7 @@ ElseIf Rs2("pay_type")="icbc" Then
 ElseIf Rs2("pay_type")="ccb" Then
  Response.write "建设银行"
 ElseIf Rs2("pay_type")="cmb" Then
- Response.write "招商银行"
+ Response.write "东方钱包"
 ElseIf Rs2("pay_type")="otherbank" Then
  Response.write "其它银行"
 End If
@@ -174,7 +174,15 @@ End If
 
 <%If Not(Rs2("pay_type")="alipay" Or Rs2("pay_type")="alipay") Then%>
 <tr> 
-<td class="td_r">开户银行：</td>
+<td class="td_r">
+<%
+If Rs("pay_type")="cmb" Then
+ Response.write "手机号后四位"
+Else
+Response.write "开户银行"
+End IF
+%>：
+</td>
 <td><%=Rs2("pay_bankaddress")%></td>
 </tr>
 <%End If%>

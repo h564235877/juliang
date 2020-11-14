@@ -13,31 +13,44 @@ OrderCode=Left(DateDiff("s","1970-1-1",Now())&GenRanStr_2(16),16)
 %>
 
 <script>
-$(function(){
- $("#submit").click(function(){
-  PayMoney=$('#PayMoney').val();
-  if(PayMoney==""){
-   alert('请填写想要结算的金额', '', function () {$("#PayMoney").focus();});
-   return false;
-  }
+  let rate=6.9;
+  $(function(){
+   $("#submit").click(function(){
+    PayMoney=$('#PayMoney').val();
+    if(PayMoney==""){
+     alert('请填写想要结算的金额', '', function () {$("#PayMoney").focus();});
+     return false;
+    }
 
-  if(PayMoney <= 0){
-   alert('请填写正确的充值的金额', '', function () {$("#PayMoney").focus();});
-   return false;
+    if(PayMoney <= 0){
+     alert('请填写正确的充值的金额', '', function () {$("#PayMoney").focus();});
+     return false;
+    }
+    
+    if(!/^\d{1,10}(\.\d{1,2})?$/.test(PayMoney)){
+     alert('结算金额输入有误，只能填写到小数点2位', '', function () {$("#PayMoney").focus();});
+     return false;
+    }
+    
+    if(PayMoney < <%=RsSet("Pay_LowCent")%>){
+     alert('最低需充值<%=RsSet("Pay_LowCent")%>元', '', function () {$("#PayMoney").focus();});
+     return false;
+    }
+    
+   })
+
+
+  });
+
+
+function getRate(el){
+  let rmb=$(el).val();
+  if(rate){
+    $("#ustd").val(rmb/rate);
+    $("#submit").attr("disabled", false);
   }
-  
-  if(!/^\d{1,10}(\.\d{1,2})?$/.test(PayMoney)){
-   alert('结算金额输入有误，只能填写到小数点2位', '', function () {$("#PayMoney").focus();});
-   return false;
-  }
-  
-  if(PayMoney < <%=RsSet("Pay_LowCent")%>){
-   alert('最低需充值<%=RsSet("Pay_LowCent")%>元', '', function () {$("#PayMoney").focus();});
-   return false;
-  }
-  
- })
-});
+  console.log($("#ustd").val());
+}
 </script>
 
 <a href="<%=ChkStr(Request.ServerVariables("Http_Referer"),1)%>" class="actionBtn" style="margin-top:10px;"><i class="mdi mdi-keyboard-return"></i>返回列表</a>
@@ -66,7 +79,7 @@ If RsSet("Pay_Default")="alipay" Then
  Response.write "支付宝"
  
 ElseIf RsSet("Pay_Default")="tenpay" Then
- Response.write "财付通"
+ Response.write "东方钱包"
  
 ElseIf RsSet("Pay_Default")="99bill" Then
  Response.write "快钱"
@@ -82,13 +95,15 @@ End If
     
     <tr> 
       <td class="td_r">订单金额：</td>
-      <td><input name='PayMoney' id='PayMoney' type='text'> 元</td>
+      <td><input  id='PayMoney' name='PayMoney' type='text' > 元
+        <span style="color: #999">(最低充值金额<%=RsSet("Pay_LowCent") %>元)</sapn>
+      </td>
     </tr>
     
     <tr> 
 	<td></td>
       <td>
-<input type="submit" name="submit" id="submit" value="充值" class="btn btn-primary">
+        <input type="submit" name="submit" id="submit" value="充值" class="btn btn-primary">
 
       </td>
     </tr>

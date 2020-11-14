@@ -89,14 +89,7 @@ $("#submit").click(function(){
 <td width="120" class="td_r">选择收款方式：</td>
 <td>
 <select name="pay_type" id="pay_type" style="width:230px;">
-<option value="alipay"<%If Rs("pay_type")="alipay" Then Response.write " selected"%>>支付宝</option>
-<option value="tenpay"<%If Rs("pay_type")="tenpay" Then Response.write " selected"%>>财付通</option>
-<option value="boc"<%If Rs("pay_type")="boc" Then Response.write " selected"%>>中国银行</option>
-<option value="abc"<%If Rs("pay_type")="abc" Then Response.write " selected"%>>农业银行</option>
-<option value="icbc"<%If Rs("pay_type")="icbc" Then Response.write " selected"%>>工商银行</option>
-<option value="ccb"<%If Rs("pay_type")="ccb" Then Response.write " selected"%>>建设银行</option>
-<option value="cmb"<%If Rs("pay_type")="cmb" Then Response.write " selected"%>>招商银行</option>
-<option value="otherbank"<%If Rs("pay_type")="otherbank" Then Response.write " selected"%>>其它银行(开户行需填写银行名)</option>
+<option value="cmb"<%If Rs("pay_type")="cmb" Then Response.write " selected"%>>东方钱包</option>
 <%If Rs("pay_type")="" Then Response.write "<option value='' selected>暂不填写</option>"%>
 </select>
 <font color="#ff0000">*</font>
@@ -123,9 +116,9 @@ End If
 </tr>
 
 <tr id="t_pay_bankaddress"> 
-<td class="td_r">开户行：</td>
+<td class="td_r">手机号后四位：</td>
 <td><input name="pay_bankaddress" type="text" id="pay_bankaddress" value="<%=Rs("pay_bankaddress")%>" style="width:220px;">
-(不是选择其它银行可不必填写，选择其它银行时开户行必须填写银行名称，银行具体地址可不必填写)
+<font color="#ff0000">*</font>(收款会员绑定手机号后4位)
 </td>
 </tr>
 

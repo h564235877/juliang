@@ -85,7 +85,7 @@ $("#QRPay_WeixinOpen_1").click(function(){QRPay_WeixinOpen_1();});
 <td>
 <input name="Pay_Default" id="Pay_Default_" type="radio" value=""<%If Rs("Pay_Default")="" Then Response.Write " Checked"%>>关闭 
 <input name="Pay_Default" id="Pay_Default_alipay" type="radio" value="alipay"<%If Rs("Pay_Default")="alipay" Then Response.Write " Checked"%>>支付宝
-<input name="Pay_Default" id="Pay_Default_tenpay" type="radio" value="tenpay"<%If Rs("Pay_Default")="tenpay" Then Response.Write " Checked"%>>财付通
+<input name="Pay_Default" id="Pay_Default_tenpay" type="radio" value="tenpay"<%If Rs("Pay_Default")="tenpay" Then Response.Write " Checked"%>>东方钱包
 <input name="Pay_Default" id="Pay_Default_99bill" type="radio" value="99bill"<%If Rs("Pay_Default")="99bill" Then Response.Write " Checked"%>>快钱
 <input name="Pay_Default" id="Pay_Default_chinabank" type="radio" value="chinabank"<%If Rs("Pay_Default")="chinabank" Then Response.Write " Checked"%>>网银在线
 </td>
@@ -105,7 +105,7 @@ $("#QRPay_WeixinOpen_1").click(function(){QRPay_WeixinOpen_1();});
 </tr>
 
 <tr id="t_Pay_TenpayID"> 
-<td class="td_r">财付通ID：</td>
+<td class="td_r">东方钱包ID：</td>
 <td><input name="Pay_TenpayID" type="text" id="Pay_TenpayID" value="<%=rs("Pay_TenpayID")%>"></td>
 </tr>
 <tr id="t_Pay_TenpayKey"> 
