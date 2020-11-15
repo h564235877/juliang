@@ -98,7 +98,7 @@ End If
 	IF Rs.Eof Then
 	 UserType=1
      UserState=RsSet("UserValid")
-	 Pwd_Md5=Md5(GenRanStr(16),1)'--并不是密码,产生一个随机字符后16位MD5,只是区别用。
+	 Pwd_Md5=Md5(GetRanStr(16),1)'--并不是密码,产生一个随机字符后16位MD5,只是区别用。
 
 	 Sql="SET IDENTITY_Insert CFWztg_User ON"
      Sql=Sql&";Insert Into CFWztg_User (ID,UserName,Pwd,Email,Total_Cent,Spare_Cent,UserState) Values ("&UserID&",'"&UserName&"','"&Pwd_Md5&"','"&Email&"',"&RsSet("UserFirstDot")&","&RsSet("UserFirstDot")&","&UserState&")"
@@ -235,7 +235,7 @@ If Action="phpuserlogin" Then
 	IF Rs.Eof Then
 	 UserType=1
 	 UserState=RsSet("UserValid")
-	 Pwd_Md5=Md5(GenRanStr(16),1)'--并不是密码,产生一个随机字符后16位MD5,只是区别用。
+	 Pwd_Md5=Md5(GetRanStr(16),1)'--并不是密码,产生一个随机字符后16位MD5,只是区别用。
 
      Sql="SET IDENTITY_Insert CFWztg_User ON"
      Sql=Sql&";Insert Into CFWztg_User (ID,UserName,Pwd,Email,Total_Cent,Spare_Cent,UserState) Values ("&UserID&",'"&UserName&"','"&Pwd_Md5&"','"&Email&"',"&RsSet("UserFirstDot")&","&RsSet("UserFirstDot")&","&UserState&")"
@@ -321,7 +321,7 @@ If Action="userreclogin" Then
 	IF Rs.Eof Then
 	 UserType=1
 	 UserState=RsSet("UserValid")
-	 Pwd_Md5=Md5(GenRanStr(16),1)'--并不是密码,产生一个随机字符后16位MD5,只是区别用。
+	 Pwd_Md5=Md5(GetRanStr(16),1)'--并不是密码,产生一个随机字符后16位MD5,只是区别用。
 
      Sql="SET IDENTITY_Insert CFWztg_User ON"
      Sql=Sql&";Insert Into CFWztg_User (ID,UserName,Pwd,Email,Total_Cent,Spare_Cent,UserState) Values ("&UserID&",'"&UserName&"','"&Pwd_Md5&"','"&Email&"',"&RsSet("UserFirstDot")&","&RsSet("UserFirstDot")&","&UserState&")"

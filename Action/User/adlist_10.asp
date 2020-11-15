@@ -271,9 +271,12 @@ Wend
 </form>
 
 <%
-AdCode="<script src="""&AdPath&"cf.aspx?action=mixadget&ad_class="&Ad_Class&"&userid=" & userid & "&lowunionusername=&clickstate=" & clickstate & "&showsel=" & showsel & "&adwidth=" & adwidth & "&adheight=" & adheight & "&adbordercolor="&adbordercolor&"&adbgcolor="&adbgcolor&"&adintrocolor="&adintrocolor&"&adintrosize="&adintrosize&"&adtitlecolor="&adtitlecolor&"&adtitlesize="&adtitlesize&"&adtitleb="&adtitleb&"&adtitleu="&adtitleu&"&newadsel="&newadsel&"&maxadid="&maxadid&"&prohibit="&ProHibit2&"""></script>"
+JsUrl=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("mixadget")&"&"&GetParaName("ad_class")&"="&Ad_Class&"&"&GetParaName("userid")&"="&userid&"&"&GetParaName("clickstate")&"="&clickstate&"&"&GetParaName("showsel")&"=" & showsel & "&"&GetParaName("adwidth")&"="&adwidth&"&"&GetParaName("adheight")&"="&adheight&"&"&GetParaName("adbordercolor")&"="&adbordercolor&"&"&GetParaName("adbgcolor")&"="&adbgcolor&"&"&GetParaName("adintrocolor")&"="&adintrocolor&"&"&GetParaName("adintrosize")&"="&adintrosize&"&"&GetParaName("adtitlecolor")&"="&adtitlecolor&"&"&GetParaName("adtitlesize")&"="&adtitlesize&"&"&GetParaName("adtitleb")&"="&adtitleb&"&"&GetParaName("adtitleu")&"="&adtitleu&"&"&GetParaName("newadsel")&"="&newadsel&"&"&GetParaName("maxadid")&"="&maxadid&"&"&GetParaName("prohibit")&"="&ProHibit2
 
-AdCodeJS="document.write('<scr'+'ipt src="""&AdPath&"cf.aspx?action=mixadget&ad_class="&Ad_Class&"&userid=" & userid & "&lowunionusername=&clickstate=" & clickstate & "&showsel=" & showsel & "&adwidth=" & adwidth & "&adheight=" & adheight & "&adbordercolor="&adbordercolor&"&adbgcolor="&adbgcolor&"&adintrocolor="&adintrocolor&"&adintrosize="&adintrosize&"&adtitlecolor="&adtitlecolor&"&adtitlesize="&adtitlesize&"&adtitleb="&adtitleb&"&adtitleu="&adtitleu&"&newadsel="&newadsel&"&maxadid="&maxadid&"&prohibit="&ProHibit2&"""></scr'+'ipt>');"
+AdCode="<script src="""&JsUrl&"""></script>"
+
+
+AdCodeJS="document.write('<scr'+'ipt src="""&JsUrl&"""></scr'+'ipt>');"
 %>
 
   <tr class="tr_1"> 

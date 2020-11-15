@@ -219,7 +219,7 @@ End If
     <tr> 
       <td>&nbsp;</td>
       <td>
-	  <input type="submit" name="submit" value="ÐÞ¸Ä" class="btn ">
+	  <input type="submit" name="submit" value="ÐÞ¸Ä" class="btn btn-sm btn-primary">
 
 
 	  </td>

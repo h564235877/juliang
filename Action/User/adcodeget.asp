@@ -250,16 +250,20 @@ Set Rs = Server.CreateObject("Adodb.RecordSet")
 Sql="Select * From CFWztg_AD where ID="&ID
 Rs.Open Sql,Conn,1,1
 %>
-  
+
 <table class="tb_1">  
   <tr> 
     <td>效果：</td>
   </tr>
   <tr> 
-    <td><script src="<%=AdPath&"cf.aspx?action=adget&ad_id="&Rs("ID")&"&userid="&userid%>"></script></td>
+    <td><script src="<%=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("adget")&"&"&GetParaName("ad_id")&"="&Rs("ID")&"&"&GetParaName("userid")&"="&userid%>"></script></td>
   </tr>
 
 <%
+JsUrlA=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("adget")&"&"&GetParaName("ad_id")&"="&Rs("ID")&"&"&GetParaName("userid")&"="&userid&"&"&GetParaName("lowunionusername")&"=&"&GetParaName("ly")&"=""+escape(document.referrer)+""&"&GetParaName("webwidth")&"=""+webwidth+""&"&GetParaName("webheight")&"=""+webheight+""&"&GetParaName("webtitle")&"=""+escape(document.title)+""&"&GetParaName("iframe")&"=1"
+
+JsUrlB=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("adget")&"&"&GetParaName("ad_id")&"="&Rs("ID")&"&"&GetParaName("userid")&"="&userid&"&"&GetParaName("lowunionusername")&"="
+
 If InStr(LCase(Rs("ad")), "</script>');") = 0 and InStr(LCase(Rs("ad")), "</script>"");") = 0 and InStr(LCase(Rs("ad")), "</scr'+'ipt>") = 0 and InStr(LCase(Rs("ad")), "</scr""+""ipt>") = 0 Then '--广告文字里存在</scr'+'ipt>或</scr"+"ipt>，则表示需要直接显示外部广告
 %>
 
@@ -268,7 +272,7 @@ If InStr(LCase(Rs("ad")), "</script>');") = 0 and InStr(LCase(Rs("ad")), "</scri
   </tr>
   <tr>
     <td><textarea id="ada1" cols="80" rows="5"><script>
-var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=AdPath%>cf.aspx?action=adget&ad_id=<%=Rs("ID")%>&userid=<%=userid%>&lowunionusername=&ly="+escape(document.referrer)+"&webwidth="+webwidth+"&webheight="+webheight+"&webtitle="+escape(document.title)+"&iframe=1' frameborder=0 width=<%=Rs("AdWidth")%> height=<%=Rs("AdHeight")%> marginheight=0 marginwidth=0 scrolling=no></iframe>");
+var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=JsUrlA%>' frameborder=0 width=<%=Rs("AdWidth")%> height=<%=Rs("AdHeight")%> marginheight=0 marginwidth=0 scrolling=no></iframe>");
 </script>
 </textarea> 
 
@@ -291,7 +295,7 @@ var webwidth,webheight;if(document.documentElement.clientWidth&&document.documen
     <td>iframe代码-Js文件调用(不会影响网站打开速度)</td>
   </tr>
   <tr>
-    <td><textarea id="ada2" cols="80" rows="5">var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=AdPath%>cf.aspx?action=adget&ad_id=<%=Rs("ID")%>&userid=<%=userid%>&lowunionusername=&ly="+escape(document.referrer)+"&webwidth="+webwidth+"&webheight="+webheight+"&webtitle="+escape(document.title)+"&iframe=1' frameborder=0 width=<%=Rs("AdWidth")%> height=<%=Rs("AdHeight")%> marginheight=0 marginwidth=0 scrolling=no></iframe>");</textarea> 
+    <td><textarea id="ada2" cols="80" rows="5">var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=JsUrlA%>' frameborder=0 width=<%=Rs("AdWidth")%> height=<%=Rs("AdHeight")%> marginheight=0 marginwidth=0 scrolling=no></iframe>");</textarea> 
 <input type="button" value="复制iframe代码-Js文件调用" id="copya2" data-clipboard-target="#ada2" data-clipboard-action="copy" class="btn btn-primary">
 <script>    
     $(function(){
@@ -310,7 +314,7 @@ var webwidth,webheight;if(document.documentElement.clientWidth&&document.documen
     <td>Js代码-Html调用</td>
   </tr>
   <tr>
-    <td><textarea id="adb1" cols="80" rows="5"><script src="<%=AdPath&"cf.aspx?action=adget&ad_id="&Rs("ID")&"&userid="&userid&"&lowunionusername="%>"></script></textarea> 
+    <td><textarea id="adb1" cols="80" rows="5"><script src="<%=JsUrlB%>"></script></textarea> 
 
 <input type="button" value="复制Js代码-Html调用" id="copyb1" data-clipboard-target="#adb1" data-clipboard-action="copy" class="btn btn-primary">
 <script>    
@@ -327,8 +331,9 @@ var webwidth,webheight;if(document.documentElement.clientWidth&&document.documen
   <tr class="tr_1"> 
     <td>Js代码-Js文件调用</td>
   </tr>
+
   <tr>
-    <td><textarea name="ad<%=Rs("ID")%>b2" id="adb2" cols="80" rows="5">document.write('<scr'+'ipt src="<%=AdPath&"cf.aspx?action=adget&ad_id="&Rs("ID")&"&userid="&userid&"&lowunionusername="%>"></scr'+'ipt>');</textarea> 
+    <td><textarea name="ad<%=Rs("ID")%>b2" id="adb2" cols="80" rows="5">document.write('<scr'+'ipt src="<%=JsUrlB%>"></scr'+'ipt>');</textarea> 
 
 <input type="button" value="复制Js代码-Js文件调用" id="copyb2" data-clipboard-target="#adb2" data-clipboard-action="copy" class="btn btn-primary">
 <script>    
@@ -356,16 +361,20 @@ Sql="Select * From CFWztg_AD where ID="&ID
 Rs.Open Sql,Conn,1,1
 
 %>
-  
+
 <table class="tb_1">  
   <tr> 
     <td>效果：</td>
   </tr>
   <tr> 
-    <td><script src="<%=AdPath&"cf.aspx?action=adget&ad_id="&Rs("ID")&"&userid="&userid%>"></script></td>
+    <td><script src="<%=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("adget")&"&"&GetParaName("ad_id")&"="&Rs("ID")&"&"&GetParaName("userid")&"="&userid%>"></script></td>
   </tr>
   
 <%
+JsUrlA=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("adget")&"&"&GetParaName("ad_id")&"="&Rs("ID")&"&"&GetParaName("userid")&"="&userid&"&"&GetParaName("lowunionusername")&"=&"&GetParaName("ly")&"=""+escape(document.referrer)+""&"&GetParaName("webwidth")&"=""+webwidth+""&"&GetParaName("webheight")&"=""+webheight+""&"&GetParaName("webtitle")&"=""+escape(document.title)+""&"&GetParaName("iframe")&"=1"
+
+JsUrlB=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("adget")&"&"&GetParaName("ad_id")&"="&Rs("ID")&"&"&GetParaName("userid")&"="&userid&"&"&GetParaName("lowunionusername")&"="
+
 '--自己定义HMTL代码或普通图片轮循时
 If Rs("AdShowType") = "AdCode_ptxs" Or Rs("AdShowType") = "AdCode_tplx" Then
 %>
@@ -374,7 +383,7 @@ If Rs("AdShowType") = "AdCode_ptxs" Or Rs("AdShowType") = "AdCode_tplx" Then
 </tr>
 <tr>
     <td><textarea id="ada1" cols="80" rows="5"><script>
-var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=AdPath%>cf.aspx?action=adget&ad_id=<%=Rs("ID")%>&userid=<%=userid%>&lowunionusername=&ly="+escape(document.referrer)+"&webwidth="+webwidth+"&webheight="+webheight+"&webtitle="+escape(document.title)+"&iframe=1' frameborder=0 width=<%=Rs("AdWidth")%> height=<%=Rs("AdHeight")%> marginheight=0 marginwidth=0 scrolling=no></iframe>");
+var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=JsUrlA%>' frameborder=0 width=<%=Rs("AdWidth")%> height=<%=Rs("AdHeight")%> marginheight=0 marginwidth=0 scrolling=no></iframe>");
 </script>
 </textarea> 
 
@@ -396,7 +405,7 @@ var webwidth,webheight;if(document.documentElement.clientWidth&&document.documen
     <td>iframe代码-Js文件调用(不会影响网站打开速度)</td>
   </tr>
   <tr>
-    <td><textarea id="ada2" cols="80" rows="5">var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=AdPath%>cf.aspx?action=adget&ad_id=<%=Rs("ID")%>&userid=<%=userid%>&lowunionusername=&ly="+escape(document.referrer)+"&webwidth="+webwidth+"&webheight="+webheight+"&webtitle="+escape(document.title)+"&iframe=1' frameborder=0 width=<%=Rs("AdWidth")%> height=<%=Rs("AdHeight")%> marginheight=0 marginwidth=0 scrolling=no></iframe>");</textarea> 
+    <td><textarea id="ada2" cols="80" rows="5">var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=JsUrlA%>' frameborder=0 width=<%=Rs("AdWidth")%> height=<%=Rs("AdHeight")%> marginheight=0 marginwidth=0 scrolling=no></iframe>");</textarea> 
 
 <input type="button" value="复制iframe代码-Js文件调用" id="copya2" data-clipboard-target="#ada2" data-clipboard-action="copy" class="btn btn-primary">
 <script>    
@@ -419,7 +428,7 @@ End If%>
     <td>Js代码-Html调用<%=tfts%></td>
   </tr>
   <tr>
-    <td><textarea id="adb1" cols="80" rows="5"><script src="<%=AdPath&"cf.aspx?action=adget&ad_id="&Rs("ID")&"&userid="&userid&"&lowunionusername="%>"></script></textarea> 
+    <td><textarea id="adb1" cols="80" rows="5"><script src="<%=JsUrlB%>"></script></textarea> 
 
 <input type="button" value="复制Html调用代码" id="copyb1" data-clipboard-target="#adb1" data-clipboard-action="copy" class="btn btn-primary">
 <script>    
@@ -439,7 +448,7 @@ End If%>
     <td>Js代码-Js文件调用<%=tfts%></td>
   </tr>
   <tr>
-    <td><textarea id="adb2" cols="80" rows="5">document.write('<scr'+'ipt src="<%=AdPath&"cf.aspx?action=adget&ad_id="&Rs("ID")&"&userid="&userid&"&lowunionusername="%>"></scr'+'ipt>');</textarea> 
+    <td><textarea id="adb2" cols="80" rows="5">document.write('<scr'+'ipt src="<%=JsUrlB%>"></scr'+'ipt>');</textarea> 
 
 <input type="button" value="复制JS调用代码" id="copyb2" data-clipboard-target="#adb2" data-clipboard-action="copy" class="btn btn-primary">
 <script>    

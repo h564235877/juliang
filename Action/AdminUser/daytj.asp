@@ -148,11 +148,11 @@ Response.write "&nbsp;&nbsp;&nbsp;&nbsp;<a href='?Action="&action&"&StartDate="&
 <%
 
 Sql="Select "&chr(10)
-Sql=Sql&"Sum(Pv_Counter) As Pv_Counter,(Sum(User_Income_Cent) / case Sum(Pv_Counter) when 0 then 1 else Sum(Pv_Counter) end ) Pv_Counter_DJ,"&chr(10)
-Sql=Sql&"Sum(Uv_Counter) As Uv_Counter,(Sum(User_Income_Cent) / case Sum(Uv_Counter) when 0 then 1 else Sum(Uv_Counter) end ) Uv_Counter_DJ,"&chr(10)
-Sql=Sql&"Sum(Display_Counter) As Display_Counter,(Sum(User_Income_Cent) / case Sum(Display_Counter) when 0 then 1 else Sum(Display_Counter) end ) Display_Counter_DJ,"&chr(10)
+Sql=Sql&"Sum(convert(bigint,Pv_Counter)) As Pv_Counter,(Sum(User_Income_Cent) / case Sum(convert(bigint,Pv_Counter)) when 0 then 1 else Sum(convert(bigint,Pv_Counter)) end ) Pv_Counter_DJ,"&chr(10)
+Sql=Sql&"Sum(convert(bigint,Uv_Counter)) As Uv_Counter,(Sum(User_Income_Cent) / case Sum(convert(bigint,Uv_Counter)) when 0 then 1 else Sum(convert(bigint,Uv_Counter)) end ) Uv_Counter_DJ,"&chr(10)
+Sql=Sql&"Sum(convert(bigint,Display_Counter)) As Display_Counter,(Sum(User_Income_Cent) / case Sum(convert(bigint,Display_Counter)) when 0 then 1 else Sum(convert(bigint,Display_Counter)) end ) Display_Counter_DJ,"&chr(10)
 
-Sql=Sql&"(Sum(Pv_Counter) / case Sum(Display_Counter) when 0 then 1 else Sum(Display_Counter) end ) PvIpRate,"&chr(10)
+Sql=Sql&"(Sum(convert(bigint,Pv_Counter)) / case Sum(convert(bigint,Display_Counter)) when 0 then 1 else Sum(convert(bigint,Display_Counter)) end ) PvIpRate,"&chr(10)
 
 Sql=Sql&"Sum(ClickPv_Counter) As ClickPv_Counter,(Sum(User_Income_Cent) / case Sum(ClickPv_Counter) when 0 then 1 else Sum(ClickPv_Counter) end ) ClickPv_Counter_DJ,"&chr(10)
 Sql=Sql&"Sum(ClickUv_Counter) As ClickUv_Counter,(Sum(User_Income_Cent) / case Sum(ClickUv_Counter) when 0 then 1 else Sum(ClickUv_Counter) end ) ClickUv_Counter_DJ,"&chr(10)
@@ -162,9 +162,9 @@ Sql=Sql&"Sum(a.Reg_Counter) Reg_Counter,"&chr(10)
 Sql=Sql&"Sum(a.Order_Counter) Order_Counter,"&chr(10)
 Sql=Sql&"Sum(a.User_Income_Cent) User_Income_Cent,"&chr(10)
 Sql=Sql&"Sum(a.SeUser_Income_Cent) SeUser_Income_Cent,"&chr(10)
-Sql=Sql&"Sum(a.Pv_2_Counter) Pv_2_Counter,"&chr(10)
-Sql=Sql&"Sum(a.Uv_2_Counter) Uv_2_Counter,"&chr(10)
-Sql=Sql&"Sum(a.Display_2_Counter) Display_2_Counter,"&chr(10)
+Sql=Sql&"Sum(convert(bigint,a.Pv_2_Counter)) Pv_2_Counter,"&chr(10)
+Sql=Sql&"Sum(convert(bigint,a.Uv_2_Counter)) Uv_2_Counter,"&chr(10)
+Sql=Sql&"Sum(convert(bigint,a.Display_2_Counter)) Display_2_Counter,"&chr(10)
 Sql=Sql&"Sum(a.ClickPv_2_Counter) ClickPv_2_Counter,"&chr(10)
 Sql=Sql&"Sum(a.ClickUv_2_Counter) ClickUv_2_Counter,"&chr(10)
 Sql=Sql&"Sum(a.Click_2_Counter) Click_2_Counter,"&chr(10)

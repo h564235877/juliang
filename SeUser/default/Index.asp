@@ -339,7 +339,7 @@ Rs2.Close
 <%If Action="main" Then%>
 
 <%
-Sql="Select top 7 a.AddDate,Sum(a.SeUser_Income_Cent) As SeUser_Income_Cent From CFWztg_AD_Counter_Day a inner join CFWztg_User b on a.username=b.username Where b.upusername='"&SeUserName&"'  Group By a.AddDate Order By a.AddDate"
+Sql="Select top 7 a.AddDate,Sum(a.SeUser_Income_Cent) As SeUser_Income_Cent From CFWztg_AD_Counter_Day a inner join CFWztg_User b on a.username=b.username Where b.upusername='"&SeUserName&"'  Group By a.AddDate Order By a.AddDate Desc"
 Set Rs2=Conn.Execute(Sql)
 While Not Rs2.Eof
  ChartDate = ChartDate & "'" & Rs2("AddDate") & "',"
@@ -350,7 +350,7 @@ ChartDate=StrReverse(Mid(StrReverse(ChartDate), 2))
 ChartData=StrReverse(Mid(StrReverse(ChartData), 2))
 
 
-Sql="Select top 15 a.AddDate,Sum(a.Display_Counter) As Display_Counter From CFWztg_AD_Counter_Day a inner join CFWztg_User b on a.username=b.username Where b.upusername='"&SeUserName&"'  Group By a.AddDate Order By a.AddDate"
+Sql="Select top 15 a.AddDate,Sum(a.Display_Counter) As Display_Counter From CFWztg_AD_Counter_Day a inner join CFWztg_User b on a.username=b.username Where b.upusername='"&SeUserName&"'  Group By a.AddDate Order By a.AddDate Desc"
 Set Rs2=Conn.Execute(Sql)
 While Not Rs2.Eof
  ChartDate2 = ChartDate2 & "'" & Rs2("AddDate") & "',"

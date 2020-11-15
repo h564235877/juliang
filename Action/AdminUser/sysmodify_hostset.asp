@@ -90,6 +90,24 @@ $("#hostset").click(function(){
 
 
  <tr class="tr_1">
+      <td colspan="2">获取广告的主文件名及参数名简化设置</td>
+    </tr>
+<tr>
+<td class="td_r">获取广告的主文件名：</td>
+<td>
+<input name="AdMainFileName" type="text" id="AdMainFileName" value="<%=rs("AdMainFileName")%>">(尽量填写a-z之类的单字母,需此aspx类型的文件名在程序根目录首先存在才能修改)
+</td>
+</tr>
+
+<tr>
+<td class="td_r">参数名简化方式：</td>
+<td>
+<input type="radio" name="AdParaShortType" id="AdParaShortType0" value="0"<%if Rs("AdParaShortType")=0 Then Response.write " checked"%>>不简化,使用原参数名      
+<input type="radio" name="AdParaShortType" id="AdParaShortType1" value="1"<%if Rs("AdParaShortType")=1 Then Response.write " checked"%>>简化,使用主文件名后加数字的格式
+</td>
+</tr>
+
+ <tr class="tr_1">
       <td colspan="2">负载均衡服务器设置</td>
     </tr>
     <tr>

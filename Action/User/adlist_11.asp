@@ -59,13 +59,19 @@ $("#adcodeset").click(function(){
  $('input[name="prohibit"]:not(:checked)').each(function(){
   prohibit.push($(this).val());
  });
+
+<%
+JsUrlA=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("mixadget")&"&"&GetParaName("ad_class")&"="&abs(ad_class)&"&"&GetParaName("userid")&"="&userid&"&"&GetParaName("lowunionusername")&"=&"&GetParaName("clickstate")&"=""+clickstate+""&"&GetParaName("adshowtype")&"=""+adshowtype+""&"&GetParaName("showsel")&"=""+showsel+""&"&GetParaName("newadsel")&"=""+newadsel+""&"&GetParaName("maxadid")&"=""+maxadid+""&"&GetParaName("prohibit")&"=""+prohibit+""&ly=\""+escape(document.referrer)+\""&webwidth=\""+webwidth+\""&webheight=\""+webheight+\""&webtitle=\""+escape(document.title)+\""&iframe=1"
+
+JsUrlB=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("mixadget")&"&"&GetParaName("ad_class")&"="&abs(ad_class)&"&"&GetParaName("userid")&"="&userid&"&"&GetParaName("lowunionusername")&"=&"&GetParaName("clickstate")&"=""+clickstate+""&"&GetParaName("adshowtype")&"=""+adshowtype+""&"&GetParaName("showsel")&"=""+showsel+""&"&GetParaName("newadsel")&"=""+newadsel+""&"&GetParaName("maxadid")&"=""+maxadid+""&"&GetParaName("prohibit")&"=""+prohibit+"""
+%>
+$("#ada1").val("<scr"+"ipt>var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write(\"<iframe src='<%=JsUrlA%>' frameborder=0 width="+adwidth+" height="+adheight+" marginheight=0 marginwidth=0 scrolling=no><\/iframe>\");<\/script>");
  
-$("#ada1").val("<scr"+"ipt>var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write(\"<iframe src='<%=AdPath%>cf.aspx?action=mixadget&ad_class=<%=abs(ad_class)%>&userid=<%=userid%>&lowunionusername=&clickstate="+clickstate+"&adshowtype="+adshowtype+"&showsel="+showsel+"&newadsel="+newadsel+"&maxadid="+maxadid+"&prohibit="+prohibit+"&ly=\"+escape(document.referrer)+\"&webwidth=\"+webwidth+\"&webheight=\"+webheight+\"&webtitle=\"+escape(document.title)+\"&iframe=1' frameborder=0 width="+adwidth+" height="+adheight+" marginheight=0 marginwidth=0 scrolling=no><\/iframe>\");<\/script>");
+ $("#ada2").val("var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write(\"<iframe src='<%=AdPath%><%=RsSet("AdMainFileName")%>.aspx?action=<%=GetValName("mixadget")%>&<%=GetParaName("ad_class")%>=<%=abs(ad_class)%>&<%=GetParaName("userid")%>=<%=userid%>&<%=GetParaName("lowunionusername")%>=&<%=GetParaName("clickstate")%>="+clickstate+"&<%=GetParaName("adshowtype")%>="+adshowtype+"&<%=GetParaName("showsel")%>="+showsel+"&<%=GetParaName("newadsel")%>="+newadsel+"&<%=GetParaName("maxadid")%>="+maxadid+"&<%=GetParaName("prohibit")%>="+prohibit+"&ly=\"+escape(document.referrer)+\"&webwidth=\"+webwidth+\"&webheight=\"+webheight+\"&webtitle=\"+escape(document.title)+\"&iframe=1' frameborder=0 width="+adwidth+" height="+adheight+" marginheight=0 marginwidth=0 scrolling=no><\/iframe>\");");
  
- $("#ada2").val("var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write(\"<iframe src='<%=AdPath%>cf.aspx?action=mixadget&ad_class=<%=abs(ad_class)%>&userid=<%=userid%>&lowunionusername=&clickstate="+clickstate+"&adshowtype="+adshowtype+"&showsel="+showsel+"&newadsel="+newadsel+"&maxadid="+maxadid+"&prohibit="+prohibit+"&ly=\"+escape(document.referrer)+\"&webwidth=\"+webwidth+\"&webheight=\"+webheight+\"&webtitle=\"+escape(document.title)+\"&iframe=1' frameborder=0 width="+adwidth+" height="+adheight+" marginheight=0 marginwidth=0 scrolling=no><\/iframe>\");");
+ $("#adb1").val("<script src=\"<%=JsUrlB%>\"></scr"+"ipt>");
  
- $("#adb1").val("<script src=\"<%=AdPath%>cf.aspx?action=mixadget&ad_class=<%=abs(ad_class)%>&userid=<%=userid%>&lowunionusername=&clickstate="+clickstate+"&adshowtype="+adshowtype+"&showsel="+showsel+"&newadsel="+newadsel+"&maxadid="+maxadid+"&prohibit="+prohibit+"\"></scr"+"ipt>");
- $("#adb2").val("document.write('<scr'+'ipt src=\"<%=AdPath%>cf.aspx?action=mixadget&ad_class=<%=abs(ad_class)%>&userid=<%=userid%>&lowunionusername=&clickstate="+clickstate+"&adshowtype="+adshowtype+"&newadsel="+newadsel+"&maxadid="+maxadid+"&prohibit="+prohibit+"\"></scr'+'ipt>');");
+ $("#adb2").val("document.write('<scr'+'ipt src=\"<%=JsUrlB%>\"></scr'+'ipt>');");
  
 });
 
@@ -235,7 +241,7 @@ Wend
  <td colspan="2">效果：</td>
 </tr>
 <tr> 
-<td colspan="2"><script src="<%=AdPath%>cf.aspx?action=mixadget&ad_class=<%=abs(ad_class)%>&userid=<%=userid%>&lowunionusername=&clickstate=<%=clickstate%>&adshowtype=<%=adshowtype%>&showsel=1&newadsel=1&maxadid=&prohibit="></script></td>
+<td colspan="2"><script src="<%=AdPath%><%=RsSet("AdMainFileName")%>.aspx?action=<%=GetValName("mixadget")%>&<%=GetParaName("ad_class")%>=<%=abs(ad_class)%>&<%=GetParaName("userid")%>=<%=userid%>&<%=GetParaName("lowunionusername")%>=&<%=GetParaName("clickstate")%>=<%=clickstate%>&<%=GetParaName("adshowtype")%>=<%=adshowtype%>&<%=GetParaName("showsel")%>=1&<%=GetParaName("newadsel")%>=1&<%=GetParaName("maxadid")%>=&<%=GetParaName("prohibit")%>="></script></td>
 </tr>
 <%End If%>
 
@@ -326,7 +332,7 @@ end If
 <input type="button" value="复制Js代码-Js文件调用" id="copyb2" data-clipboard-target="#adb2" data-clipboard-action="copy" class="btn btn-primary">
 <script>    
     $(function(){
-        var clipboard = new Clipboard('#copya4');
+        var clipboard = new Clipboard('#copyb2');
         clipboard.on('success', function(e) {
             e.clearSelection();
             console.log(e.clearSelection);

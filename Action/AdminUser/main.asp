@@ -234,10 +234,50 @@ CheckCode  = Md5(CheckTime & RsSet("SysCode"), 2)
 If CacheServer <> "" Then
 %>
 <tr class="tr_1">
+ <td colspan=2>负载均衡服务器运行检测</td>
+</tr>
+<tr>
+  <td class="td_r">服务器检测结果：</td>
+  <td>
+<%
+MyArray=Split(CacheServer,",")
+
+For I= 0 To UBound(MyArray)
+ '--分站点带端口号时
+ If Instr(MyArray(I),":1")>0 Or Instr(MyArray(I),":2")>0 Or Instr(MyArray(I),":3")>0 Or Instr(MyArray(I),":4")>0 Or Instr(MyArray(I),":5")>0 Or Instr(MyArray(I),":6")>0 Or Instr(MyArray(I),":7")>0 Or Instr(MyArray(I),":8")>0 Or Instr(MyArray(I),":9")>0 Then
+  MyStr1=Left(MyArray(I),InStrRev(MyArray(I),":")-1)
+  MyStr2=Mid(MyArray(I),InStrRev(MyArray(I),":")+1)
+  MyStr3=Mid(MyStr2,InStr(MyStr2,"/"))
+ 
+  MyStr=MyStr1&MyStr3'--去掉端口号
+ Else
+  MyStr=MyArray(I)
+ End If
+    
+ If Instr(AllServer,MyStr)=0 Then'--排除重复的服务器,检测各服务器的http80或https443端口号
+  J=J+1
+  Response.Write("第" & J & "个:<iframe scrolling='no' width='450' height='16' src='" & MyStr & "cf.aspx?Action=cachecheck&CacheServer=" & MyStr & "&CheckTime=" & CheckTime & "&CheckCode=" & CheckCode & "' frameborder='0' marginheight=0 marginwidth=0></iframe><br>")
+ End If
+ 
+ AllServer=AllServer&MyStr&","
+Next
+
+%>
+</td>
+</tr>
+<%end if%>
+
+<%
+CacheServer=RsSet("CacheServer")
+CheckTime  = DateDiff("s", "1970-1-1", Now)
+CheckCode  = Md5(CheckTime & RsSet("SysCode"), 2)
+If CacheServer <> "" Then
+%>
+<tr class="tr_1">
  <td colspan=2>负载均衡站点运行检测</td>
 </tr>
 <tr>
-  <td class="td_r">检测结果：</td>
+  <td class="td_r">站点检测结果：</td>
   <td>
 <%
 MyArray = Split(CacheServer, ",")

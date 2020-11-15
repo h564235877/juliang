@@ -338,7 +338,7 @@ Rs2.Close
 <%If Action="main" Then%>
 
 <%
-Sql="select c.adddate,sum(c.CoUser_Income_Cent) CoUser_Income_Cent from (select top 1000 min(a.adddate) adddate,a.ad_id,max(adusername) adusername,sum(a.CoUser_Income_Cent) CoUser_Income_Cent from CFWztg_AD_Counter_Day a inner join CFWztg_AD b on a.ad_id=b.id group by a.ad_id) c  inner join CFWztg_User d on c.adusername=d.username and d.upusername='"&CoUserName&"' group by c.adddate order by c.adddate"
+Sql="select c.adddate,sum(c.CoUser_Income_Cent) CoUser_Income_Cent from (select top 7 min(a.adddate) adddate,a.ad_id,max(adusername) adusername,sum(a.CoUser_Income_Cent) CoUser_Income_Cent from CFWztg_AD_Counter_Day a inner join CFWztg_AD b on a.ad_id=b.id group by a.ad_id) c  inner join CFWztg_User d on c.adusername=d.username and d.upusername='"&CoUserName&"' group by c.adddate order by c.adddate Desc"
 Set Rs2=Conn.Execute(Sql)
 While Not Rs2.Eof
  ChartDate = ChartDate & "'" & Rs2("AddDate") & "',"
@@ -349,7 +349,7 @@ ChartDate=StrReverse(Mid(StrReverse(ChartDate), 2))
 ChartData=StrReverse(Mid(StrReverse(ChartData), 2))
 
 
-Sql="select c.adddate,sum(c.Display_Counter) Display_Counter from (select top 1000 min(a.adddate) adddate,a.ad_id,max(adusername) adusername,sum(a.Display_Counter) Display_Counter from CFWztg_AD_Counter_Day a inner join CFWztg_AD b on a.ad_id=b.id group by a.ad_id) c  inner join CFWztg_User d on c.adusername=d.username and d.upusername='"&CoUserName&"' group by c.adddate order by c.adddate"
+Sql="select c.adddate,sum(c.Display_Counter) Display_Counter from (select top 15 min(a.adddate) adddate,a.ad_id,max(adusername) adusername,sum(a.Display_Counter) Display_Counter from CFWztg_AD_Counter_Day a inner join CFWztg_AD b on a.ad_id=b.id group by a.ad_id) c  inner join CFWztg_User d on c.adusername=d.username and d.upusername='"&CoUserName&"' group by c.adddate order by c.adddate Desc"
 Set Rs2=Conn.Execute(Sql)
 While Not Rs2.Eof
  ChartDate2 = ChartDate2 & "'" & Rs2("AddDate") & "',"

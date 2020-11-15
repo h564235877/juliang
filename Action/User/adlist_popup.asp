@@ -31,9 +31,9 @@ Sql="Select isnull(max(ID),0) From CFWztg_AD where AdState=2 and Ad_Class="&Ad_C
 Set Rs=Conn.execute(Sql)
 maxadid=Rs(0)
 
-adcode="<script src="""&AdPath&"cf.aspx?action=cycadget&ad_class="&Ad_Class&"&userid=" & userid &"&lowunionusername=&clickstate=1&showsel="&showsel&"&delaytime=" & delaytime &"&spacetime=" & spacetime &"&puttime="&puttime&"&newadsel="&newadsel&"&maxadid=&prohibit="&prohibit&"""></script>"
+adcode="<script src="""&AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("cycadget")&"&"&GetParaName("ad_class")&"="&Ad_Class&"&"&GetParaName("userid")&"=" & userid &"&"&GetParaName("lowunionusername")&"=&"&GetParaName("clickstate")&"=1&"&GetParaName("showsel")&"="&showsel&"&"&GetParaName("delaytime")&"=" & delaytime &"&"&GetParaName("spacetime")&"=" & spacetime &"&"&GetParaName("puttime")&"="&puttime&"&"&GetParaName("newadsel")&"="&newadsel&"&"&GetParaName("maxadid")&"=&"&GetParaName("prohibit")&"="&prohibit&"""></script>"
 
-adcode_js="document.write('<scr'+'ipt src="""&AdPath&"cf.aspx?action=cycadget&ad_class="&Ad_Class&"&userid=" & userid &"&lowunionusername=&clickstate=1&showsel="&showsel&"&delaytime=" & delaytime &"&spacetime=" & spacetime &"&puttime="&puttime&"&newadsel="&newadsel&"&maxadid=&prohibit="&prohibit&"""></scr'+'ipt>');"
+adcode_js="document.write('<scr'+'ipt src="""&AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("cycadget")&"&"&GetParaName("ad_class")&"="&Ad_Class&"&"&GetParaName("userid")&"=" & userid &"&"&GetParaName("lowunionusername")&"=&"&GetParaName("clickstate")&"=1&"&GetParaName("showsel")&"="&showsel&"&"&GetParaName("delaytime")&"=" & delaytime &"&"&GetParaName("spacetime")&"=" & spacetime &"&"&GetParaName("puttime")&"="&puttime&"&"&GetParaName("newadsel")&"="&newadsel&"&"&GetParaName("maxadid")&"=&"&GetParaName("prohibit")&"="&prohibit&"""></scr'+'ipt>');"
 %>
 
 <script src="../../js/clipboard.min.js"></script>

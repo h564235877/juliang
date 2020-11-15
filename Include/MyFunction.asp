@@ -755,7 +755,153 @@ Function GetClickFlagDesc(ByVal ClickFlag)
  End If
 End Function
 
-Function GenRanStr(ByVal digits)
+Function GetValName(ByVal ValName)
+
+If RsSet("AdParaShortType")=0 Then
+ GetValName = ValName
+Else
+ if ValName="cycadget" Then
+  GetValName="c"
+ Elseif ValName="cycadget_popup" Then
+  GetValName="cp"
+ Elseif ValName="adget" Then
+  GetValName="a"
+ Elseif ValName="adget_2" Then
+  GetValName="a2"
+ Elseif ValName="mixadget" Then
+  GetValName="m"
+ Elseif ValName="mixadget" Then
+  GetValName="mc"
+ Elseif ValName="mixadget_label" Then
+  GetValName="ml"
+ Elseif ValName="mixadget_self" Then
+  GetValName="ms"
+ Else
+   GetValName=ValName
+ End If
+End If
+ 
+End Function
+
+Function GetParaName(ByVal ParaName)
+
+If RsSet("AdParaShortType")=0 Then
+ GetParaName = ParaName
+Else
+ ParaName=Lcase(ParaName)
+ 
+ if ParaName="ad_class" Then
+  GetParaName = 1
+ Elseif ParaName="userid" Then
+  GetParaName = 2
+ Elseif ParaName="lowunionusername" Then
+  GetParaName = 3
+ Elseif ParaName="clickstate" Then
+  GetParaName = 4
+ Elseif ParaName="adshowtype" Then
+  GetParaName = 5
+ Elseif ParaName="ad_size" Then
+  GetParaName = 6
+ Elseif ParaName="showsel" Then
+  GetParaName = 7
+ Elseif ParaName="newadsel" Then
+  GetParaName = 8
+ Elseif ParaName="maxadid" Then
+  GetParaName = 9
+ Elseif ParaName="prohibit" Then
+  GetParaName = 10
+ Elseif ParaName="starttime" Then
+  GetParaName = 11
+ Elseif ParaName="ly" Then
+  GetParaName = 12
+ Elseif ParaName="ly_2" Then
+  GetParaName = 13
+ Elseif ParaName="firstshowtime" Then
+  GetParaName = 14
+ Elseif ParaName="visittotal" Then
+  GetParaName = 15
+ Elseif ParaName="webwidth" Then
+  GetParaName = 16
+ Elseif ParaName="webheight" Then
+  GetParaName = 17
+ Elseif ParaName="webtop" Then
+  GetParaName = 18
+ Elseif ParaName="webleft" Then
+  GetParaName = 19
+ Elseif ParaName="screenwidth" Then
+  GetParaName = 20
+ Elseif ParaName="screenheight" Then
+  GetParaName = 21
+ Elseif ParaName="screencolordepth" Then
+  GetParaName = 22
+ Elseif ParaName="hislen" Then
+  GetParaName = 23
+ Elseif ParaName="winori" Then
+  GetParaName = 24
+ Elseif ParaName="hwc" Then
+  GetParaName = 25
+ Elseif ParaName="vendor" Then
+  GetParaName = 26
+ Elseif ParaName="renderer" Then
+  GetParaName = 27
+ Elseif ParaName="cct" Then
+  GetParaName = 28
+ Elseif ParaName="webtitle" Then
+  GetParaName = 29
+ Elseif ParaName="iframe" Then
+  GetParaName = 30
+ Elseif ParaName="ranstr" Then
+  GetParaName = 31
+ Elseif ParaName="ad_id" Then
+  GetParaName = 32
+ Elseif ParaName="adshowmode" Then
+  GetParaName = 33
+ Elseif ParaName="adwidth" Then
+  GetParaName = 34
+ Elseif ParaName="adheight" Then
+  GetParaName = 35
+ Elseif ParaName="adrow" Then
+  GetParaName = 36
+ Elseif ParaName="adcol" Then
+  GetParaName = 37
+ Elseif ParaName="adbordercolor" Then
+  GetParaName = 38
+ Elseif ParaName="adbgcolor" Then
+  GetParaName = 39
+ Elseif ParaName="adintrocolor" Then
+  GetParaName = 40
+ Elseif ParaName="adintrosize" Then
+  GetParaName = 41
+ Elseif ParaName="adtitlecolor" Then
+  GetParaName = 42
+ Elseif ParaName="adtitlecolor" Then
+  GetParaName = 43
+ Elseif ParaName="adtitlesize" Then
+  GetParaName = 44
+ Elseif ParaName="adtitleb" Then
+  GetParaName = 45
+ Elseif ParaName="adtitleu" Then
+  GetParaName = 46
+ Elseif ParaName="delaytime" Then
+  GetParaName = 47
+ Elseif ParaName="spacetime" Then
+  GetParaName = 48
+ Elseif ParaName="puttime" Then
+  GetParaName = 49
+ Else 
+  GetParaName = 0
+ End If
+   
+	If CInt(GetParaName)>0 Then
+	GetParaName = RsSet("AdMainFileName") & GetParaName
+	Else
+	GetParaName = ParaName'--没有定义的取回原参数名
+	End If  
+End If
+
+End Function
+
+Function GetRanStr(ByVal digits)
  Dim output
  Dim Num
  Dim char_array(35)
@@ -805,10 +951,10 @@ Function GenRanStr(ByVal digits)
   output = output + Num
  Loop
 
- GenRanStr = output
+ GetRanStr = output
 End Function
 
-Function GenRanStr_2(ByVal digits) 
+Function GetRanStr_2(ByVal digits) 
  dim char_array_2(9)
  char_array_2(0) = "0"
  char_array_2(1) = "1"
@@ -826,11 +972,11 @@ Function GenRanStr_2(ByVal digits)
  num_2 = char_array_2(Int(10*Rnd))
  output_2 = output_2 + num_2
  loop
- GenRanStr_2 = output_2
+ GetRanStr_2 = output_2
 End Function
 
 
-Function GenRanStr_3(ByVal digits)
+Function GetRanStr_3(ByVal digits)
  Dim output_3
  Dim Num_3
  Dim char_array_3(25)

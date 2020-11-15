@@ -316,9 +316,11 @@ Wend
 </form>
 
 <%
-AdCode="<script src="""&AdPath&"cf.aspx?action=mixadget&ad_class="&Ad_Class&"&userid=" & userid & "&lowunionusername=&clickstate="&clickstate&"&showsel="&showsel&"&adshowmode="&adshowmode&"&adwidth=" & adwidth & "&adheight=" & adheight & "&adrow=" & adrow &"&adcol=" & adcol & "&adbordercolor="&adbordercolor&"&adbgcolor="&adbgcolor&"&adintrocolor="&adintrocolor&"&adintrosize="&adintrosize&"&adtitlecolor="&adtitlecolor&"&adtitlesize="&adtitlesize&"&adtitleb="&adtitleb&"&adtitleu="&adtitleu&"&newadsel="&newadsel&"&maxadid="&maxadid&"&prohibit="&ProHibit2&"""></script>"
+JsUrl=AdPath&RsSet("AdMainFileName")&".aspx?action="&GetValName("mixadget")&"&"&GetParaName("ad_class")&"="&Ad_Class&"&"&GetParaName("userid")&"=" & userid & "&"&GetParaName("lowunionusername")&"=&"&GetParaName("clickstate")&"="&clickstate&"&"&GetParaName("showsel")&"="&showsel&"&"&GetParaName("adshowmode")&"="&adshowmode&"&"&GetParaName("adwidth")&"=" & adwidth & "&"&GetParaName("adheight")&"=" & adheight & "&"&GetParaName("adrow")&"=" & adrow &"&"&GetParaName("adcol")&"=" & adcol & "&"&GetParaName("adbordercolor")&"="&adbordercolor&"&"&GetParaName("adbgcolor")&"="&adbgcolor&"&"&GetParaName("adintrocolor")&"="&adintrocolor&"&"&GetParaName("adintrosize")&"="&adintrosize&"&"&GetParaName("adtitlecolor")&"="&adtitlecolor&"&"&GetParaName("adtitlesize")&"="&adtitlesize&"&"&GetParaName("adtitleb")&"="&adtitleb&"&"&GetParaName("adtitleu")&"="&adtitleu&"&"&GetParaName("newadsel")&"="&newadsel&"&"&GetParaName("maxadid")&"="&maxadid&"&"&GetParaName("prohibit")&"="&ProHibit2
 
-AdCodeJS="document.write('<scr'+'ipt src="""&AdPath&"cf.aspx?action=mixadget&ad_class="&Ad_Class&"&userid=" & userid & "&lowunionusername=&clickstate="&clickstate&"&showsel="&showsel&"&adshowmode="&adshowmode&"&adwidth=" & adwidth & "&adheight=" & adheight & "&adrow=" & adrow &"&adcol=" & adcol & "&adbordercolor="&adbordercolor&"&adbgcolor="&adbgcolor&"&adintrocolor="&adintrocolor&"&adintrosize="&adintrosize&"&adtitlecolor="&adtitlecolor&"&adtitlesize="&adtitlesize&"&adtitleb="&adtitleb&"&adtitleu="&adtitleu&"&newadsel="&newadsel&"&maxadid="&maxadid&"&prohibit="&ProHibit2&"""></scr'+'ipt>');"
+AdCode="<script src="""&JsUrl&"""></script>"
+
+AdCodeJS="document.write('<scr'+'ipt src="""&JsUrl&"""></scr'+'ipt>');"
 %>
   <tr class="tr_1"> 
     <td colspan="2">效果：</td>
@@ -326,13 +328,16 @@ AdCodeJS="document.write('<scr'+'ipt src="""&AdPath&"cf.aspx?action=mixadget&ad_
   <tr> 
     <td colspan="2"><%=AdCode%></td>
   </tr>
-  
+
+<%
+
+%>
 <tr class="tr_1"> 
 <td colspan="2">iframe代码-Html调用(不会影响网站打开速度)</td>
 </tr>
 <tr>
     <td colspan="2"><textarea id="ada1" cols="80" rows="5"><script>
-var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=AdPath&"cf.aspx?action=mixadget&ad_class="&Ad_Class&"&userid=" & userid & "&lowunionusername=&clickstate="&clickstate&"&showsel="&showsel&"&adshowmode="&adshowmode&"&adwidth=" & adwidth & "&adheight=" & adheight & "&adrow=" & adrow &"&adcol=" & adcol & "&adbordercolor="&adbordercolor&"&adbgcolor="&adbgcolor&"&adintrocolor="&adintrocolor&"&adintrosize="&adintrosize&"&adtitlecolor="&adtitlecolor&"&adtitlesize="&adtitlesize&"&adtitleb="&adtitleb&"&adtitleu="&adtitleu&"&newadsel="&newadsel&"&maxadid="&maxadid&"&prohibit="&ProHibit2%>&ly="+escape(document.referrer)+"&webwidth="+webwidth+"&webheight="+webheight+"&webtitle="+escape(document.title)+"&iframe=1' frameborder=0 width=<%=adwidth%> height=<%=adheight%> marginheight=0 marginwidth=0 scrolling=no></iframe>");
+var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=JsUrl%>&ly="+escape(document.referrer)+"&webwidth="+webwidth+"&webheight="+webheight+"&webtitle="+escape(document.title)+"&iframe=1' frameborder=0 width=<%=adwidth%> height=<%=adheight%> marginheight=0 marginwidth=0 scrolling=no></iframe>");
 </script>
 </textarea> 
 
@@ -354,7 +359,7 @@ var webwidth,webheight;if(document.documentElement.clientWidth&&document.documen
     <td colspan="2">iframe代码-Js文件调用(不会影响网站打开速度)</td>
   </tr>
   <tr>
-    <td colspan="2"><textarea id="ada2" cols="80" rows="5">var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=AdPath&"cf.aspx?action=mixadget&ad_class="&Ad_Class&"&userid=" & userid & "&lowunionusername=&clickstate="&clickstate&"&showsel="&showsel&"&adshowmode="&adshowmode&"&adwidth=" & adwidth & "&adheight=" & adheight & "&adrow=" & adrow &"&adcol=" & adcol & "&adbordercolor="&adbordercolor&"&adbgcolor="&adbgcolor&"&adintrocolor="&adintrocolor&"&adintrosize="&adintrosize&"&adtitlecolor="&adtitlecolor&"&adtitlesize="&adtitlesize&"&adtitleb="&adtitleb&"&adtitleu="&adtitleu&"&newadsel="&newadsel&"&maxadid="&maxadid&"&prohibit="&ProHibit2%>&ly="+escape(document.referrer)+"&webwidth="+webwidth+"&webheight="+webheight+"&webtitle="+escape(document.title)+"&iframe=1' frameborder=0 width=<%=adwidth%> height=<%=adheight%> marginheight=0 marginwidth=0 scrolling=no></iframe>");</textarea> 
+    <td colspan="2"><textarea id="ada2" cols="80" rows="5">var webwidth,webheight;if(document.documentElement.clientWidth&&document.documentElement.clientHeight){webwidth=document.documentElement.clientWidth;webheight=document.documentElement.clientHeight;}else if(document.body){webwidth=document.body.clientWidth;webheight=document.body.clientHeight;}document.write("<iframe src='<%=JsUrl%>&ly="+escape(document.referrer)+"&webwidth="+webwidth+"&webheight="+webheight+"&webtitle="+escape(document.title)+"&iframe=1' frameborder=0 width=<%=adwidth%> height=<%=adheight%> marginheight=0 marginwidth=0 scrolling=no></iframe>");</textarea> 
 
 <input type="button" value="复制iframe代码-Js文件调用" id="copya2" data-clipboard-target="#ada2" data-clipboard-action="copy" class="btn btn-primary">
 <script>    

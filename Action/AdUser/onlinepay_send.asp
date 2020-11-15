@@ -98,7 +98,7 @@ End Class
 
 	 
 '登陆 www.alipay.com 后, 点商家服务,可以看到支付宝安全校验码和合作id,导航栏的下面
-INTERFACE_URL="http://open.dfpay.com/recharge/apply/"
+INTERFACE_URL="https://www.alipay.com/cooperate/gateway.do?"
 %>
 
 <%
@@ -122,60 +122,88 @@ INTERFACE_URL="http://open.dfpay.com/recharge/apply/"
 
 
 <%If RsSet("Pay_Default")="tenpay" Then%>
+<% Response.Charset="GB2312" %>
 <%
-	set xhr= server.createobject("Microsoft.XMLHTTP")
-	xhr.Open "GET", "http://open.dfpay.com/queryExchangeRate", false
-	xhr.Send
-	response.Write xhr.responseText
-	set xhr= Nothing
-%>
+	' 获取服务器日期，格式YYYYMMDD
+	Function CFTGetServerDate 
+		Dim strTmp, iYear,iMonth,iDate 
+		iYear = Year(Date) 
+		iMonth = Month(Date) 
+		iDate = Day(Date) 
 
+		strTmp = CStr(iYear)
+		If iMonth < 10 Then 
+			strTmp = strTmp & "0" & Cstr(iMonth)
+		Else 
+			strTmp = strTmp & Cstr(iMonth)
+		End If 
+		If iDate < 10 Then 
+			strTmp = strTmp & "0" & Cstr(iDate) 
+		Else 
+			strTmp = strTmp & Cstr(iDate) 
+		End If 
+		CFTGetServerDate = strTmp 
+	End Function
 
-<% 
-	spid = RsSet("Pay_TenpayID")		' 这里替换为您的实际商户号
-	timestamp =DateDiff("s", "01/01/1970 00:00:00", Now())	' 当前时间戳	 
-
-	' 生成MD5签名    
-	sign_text = "cmdno=" & cmdno & "&date=" & bill_date & "&appId=" & appId &_
-        "&transaction_id=" & transaction_id & "&sp_billno=" & sp_billno &_
-        "&total_fee=" & total_fee & "&fee_type=" & fee_type & "&return_url=" & return_url &_
-        "&attach=" & attach & "&spbill_create_ip=" & spbill_create_ip & "&key=" & sp_key
-
-	md5_sign = UCase(Md5(sign_text,2))        ' 转换为大写  
-
-	'请求头
-	Response.Charset="GB2312" 
-	Response.AddHeader "appId", "spid"
-	Response.AddHeader "timestamp", "timestamp"
-	Response.AddHeader "sign", "md5_sign"
-%>
-
-<%
 	Dim request_text
 	Dim md5_sign
 
-
-	' 下面是请求参数	
-	sp_billno	 = OrderCode		' 商户生成的订单号(最多32位)	
+	spid		= RsSet("Pay_TenpayID")		' 这里替换为您的实际商户号
 	sp_key	= RsSet("Pay_TenpayKey")	' sp_key是32位商户密钥, 请替换为您的实际密钥
+
+	' 下面是请求参数
+	cmdno		= "1"				' 财付通支付为"1" (当前只支持 cmdno=1)	
+	bill_date	= CFTGetServerDate	' 交易日期 (yyyymmdd)	
+	bank_type	= "0"				' 银行类型:	0		财付通
+									'			1001	招商银行   
+									'			1002	中国工商银行  
+									'			1003	中国建设银行  
+									'			1004	上海浦东发展银行   
+									'			1005	中国农业银行  
+									'			1006	中国民生银行  
+									'			1008	深圳发展银行   
+									'			1009	兴业银行   
+
+	desc		= "tg_onlinepay"		' 商品名称
+	purchaser_id = ""				' 用户财付通帐号，如果没有可以置空
+	bargainor_id = spid				' 商户号
+	sp_billno	 = OrderCode		' 商户生成的订单号(最多32位)	
+
 	' 重要:
 	' 交易单号(28位): 商户号(10位) + 日期(8位) + 流水号(10位), 必须按此格式生成, 且不能重复
 	' 如果sp_billno超过10位, 则截取其中的流水号部分加到transaction_id后部(不足10位左补0)
 	' 如果sp_billno不足10位, 则左补0, 加到transaction_id后部
 	transaction_id = spid & bill_date & Right(OrderCode,10)
-	total_fee	 = PayMoney*100				' 总金额, 分为单位
-	return_url	 = HttpPath(2)&"onlinepay_receive_tenpay.asp" ' 财付通回调页面地址, (最长255个字符)
 
-	
+	total_fee	 = PayMoney*100				' 总金额, 分为单位
+	fee_type	 = "1"				' 货币类型: 1 – RMB(人民币) 2 - USD(美元) 3 - HKD(港币)
+	return_url	 = HttpPath(2)&"onlinepay_receive_tenpay.asp" ' 财付通回调页面地址, (最长255个字符)
+	attach		 = ""	' 商户私有数据, 请求回调页面时原样返回
+	spbill_create_ip= Request.ServerVariables("REMOTE_ADDR")
+
+	' 生成MD5签名    
+	sign_text = "cmdno=" & cmdno & "&date=" & bill_date & "&bargainor_id=" & bargainor_id &_
+        "&transaction_id=" & transaction_id & "&sp_billno=" & sp_billno &_
+        "&total_fee=" & total_fee & "&fee_type=" & fee_type & "&return_url=" & return_url &_
+        "&attach=" & attach & "&spbill_create_ip=" & spbill_create_ip & "&key=" & sp_key
+
+	md5_sign = UCase(Md5(sign_text,2))        ' 转换为大写  
 %>
-<body >
-	<!-- onload='form1.submit();' -->
-<form method='post' name='form1' action="../AdUser/DF_apply.php">
-<input type=hidden name="timestamp"			    value="<%=timestamp%>">
-<input type=hidden name="appId"				value="<%=appId%>">
-<input type=hidden name="outOrderNo"			value="<%=sp_billno%>">
-<input type=hidden name="amount"			value="<%=total_fee%>">
+<body onload='form1.submit();'>
+<form method='post' name='form1' action="https://www.tenpay.com/cgi-bin/v1.0/pay_gate.cgi">
+<input type=hidden name="cmdno"				value="<%=cmdno%>">
+<input type=hidden name="date"			    value="<%=bill_date%>">
+<input type=hidden name="bank_type"			value="<%=bank_type%>">
+<input type=hidden name="desc"				value="<%=desc%>">
+<input type=hidden name="purchaser_id"		value="<%=purchaser_id%>">
+<input type=hidden name="bargainor_id"		value="<%=bargainor_id%>">
+<input type=hidden name="transaction_id"	value="<%=transaction_id%>">
+<input type=hidden name="sp_billno"			value="<%=sp_billno%>">
+<input type=hidden name="total_fee"			value="<%=total_fee%>">
+<input type=hidden name="fee_type"			value="<%=fee_type%>">
 <input type=hidden name="return_url"		value="<%=return_url%>">
+<input type=hidden name="attach"			value="<%=attach%>">
+<input type=hidden name="spbill_create_ip"			value="<%=spbill_create_ip%>">
 <input type=hidden name="sign"				value="<%=md5_sign%>">
 <input name="pay"  type="submit" value="开始在线支付">
 </form>

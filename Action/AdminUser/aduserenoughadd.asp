@@ -68,7 +68,7 @@ Rs.Close
 </tr>
 <TR> 
 <TD class="td_r">定单号：</TD>
-<TD><%OrderCode=Left(DateDiff("s","1970-1-1",Now())&GenRanStr_2(16),16)%><input name="OrderCode" type="text" id="OrderCode" value="<%=OrderCode%>">(如果是收款二维码收的，优先填写支付宝或微信的订单号方便核对)</TD>
+<TD><%OrderCode=Left(DateDiff("s","1970-1-1",Now())&GetRanStr_2(16),16)%><input name="OrderCode" type="text" id="OrderCode" value="<%=OrderCode%>">(如果是收款二维码收的，优先填写支付宝或微信的订单号方便核对)</TD>
 </TR>
 
 <tr> 

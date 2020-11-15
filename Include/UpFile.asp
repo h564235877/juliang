@@ -65,7 +65,7 @@ border-radius: 3px;
 
 
 If RsSet("UploadType")=1 Then
- UpFileType="jpg|gif|swf|exe|apk|ipa" '允许的上传文件类型
+ UpFileType="jpg|png|gif|swf|exe|apk|ipa" '允许的上传文件类型
  MaxFileSize=200*1024 '允许的最大上传文件多少字节
  FormName="img"'上传的表单名称
  SavePath="../upload"   '存放上传文件的目录
@@ -228,7 +228,7 @@ End Function
 
 Function CheckFileExt(FileExt)
 	Dim ForumUpload,i
-	ForumUpload="jpg,gif,swf,exe"
+	ForumUpload="jpg,png,gif,swf,exe"
 	ForumUpload=Split(ForumUpload,",")
 	CheckFileExt=False
 	For i=0 to UBound(ForumUpload)
